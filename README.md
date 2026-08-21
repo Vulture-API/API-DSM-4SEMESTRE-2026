@@ -363,17 +363,15 @@ cd [NOME_DO_REPOSITORIO]
 
 ---
 
-# 👥 Equipe <a id="equipe"></a>
+## 👥 Equipe <a id="equipe"></a>
 
-| Integrante        | Papel                       | GitHub                              |
-| ----------------- | --------------------------- | ----------------------------------- |
-| Aline             | Master / Developer / DevOps | <a href="https://github.com/AlineRaquelC ">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30" />
-</a>    |
-| Ana Julia         | Product Owner / DevOps      | https://github.com/anajrubim        |
-| Lucas Marins      | Developer / DevOps          | https://github.com/lucasMarinsSantos|
-| Enrico Germano    | Developer / DevOps          | https://github.com/EnricoGermano    |
-| Leonardo da Silva | Developer / DevOps          | https://github.com/leodaslb         |
+| Integrante | Papel | GitHub |
+| :--- | :--- | :---: |
+| **Aline** | Master / Developer / DevOps | <a href="https://github.com/AlineRaquelC"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> |
+| **Ana Julia (Rubim)** | Product Owner / DevOps | <a href="https://github.com/anajrubim"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> |
+| **Lucas Marins** | Developer / DevOps | <a href="https://github.com/lucasMarinsSantos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> |
+| **Enrico Germano** | Developer / DevOps | <a href="https://github.com/EnricoGermano"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> |
+| **Leonardo da Silva** | Developer / DevOps | <a href="https://github.com/leodaslb"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> |
 
 ---
 
