@@ -29,7 +29,7 @@
 >
 > **Documentação:** [Adicionar link]
 >
-> **Jira:** (https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
+> **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
 >
 > **Vídeo do Projeto:** [Adicionar link]
 
