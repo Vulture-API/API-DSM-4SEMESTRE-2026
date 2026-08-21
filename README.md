@@ -1,6 +1,5 @@
 # API DSM 4º SEMESTRE 2026
 
-# Vulture / TÍTULO DO PROJETO(definir após o kick-off)
 
 <h2 align="center"> [VULTURE / PROJETO] </h2>
 
@@ -29,7 +28,7 @@
 >
 > **Documentação:** [Adicionar link]
 >
-> **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
+> **Jira:** [Acessar o Jira do projeto](https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
 >
 > **Vídeo do Projeto:** [Adicionar link]
 
@@ -410,4 +409,3 @@ cd [NOME_DO_REPOSITORIO]
 **Fase atual:** Pré-Kick-off.
 
 O conteúdo técnico e funcional deste README será atualizado após o Kick-off oficial, conforme definição do problema, requisitos, arquitetura, tecnologias e planejamento das Sprints.
-# API-DSM-4SEMESTRE-2026
