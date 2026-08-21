@@ -214,6 +214,14 @@ A integração deverá relacionar:
 * testes;
 * deployments.
 
+## Status da Integração
+
+- [x] GitHub for Atlassian instalado
+- [x] Repositório conectado ao Jira
+- [x] Criação de branches vinculadas aos itens do Jira
+- [ ] Validação de commits vinculados
+- [ ] Validação de Pull Requests vinculados
+
 ## Padrão de identificação
 
 ```text
