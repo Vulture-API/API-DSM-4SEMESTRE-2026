@@ -1,6 +1,6 @@
 # API DSM 4º SEMESTRE 2026
 
-# [Vulture / TÍTULO DO PROJETO(definir após o kick-off)]
+# Vulture / TÍTULO DO PROJETO(definir após o kick-off)
 
 <h2 align="center"> [VULTURE / PROJETO] </h2>
 
@@ -29,7 +29,7 @@
 >
 > **Documentação:** [Adicionar link]
 >
-> **Jira:** [Adicionar link]
+> **Jira:** (https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
 >
 > **Vídeo do Projeto:** [Adicionar link]
 
