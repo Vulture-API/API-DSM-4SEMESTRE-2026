@@ -1,4 +1,3 @@
-[pull_request_template.md](https://github.com/user-attachments/files/32013922/pull_request_template.1.md)
 ## Descrição
 
 Descreva de forma objetiva o que foi implementado, corrigido ou documentado.
