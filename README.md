@@ -1,419 +1,394 @@
-# API DSM 4º SEMESTRE 2026
+  # 🌦️ AgroClima 360 — API DSM 4º Semestre 2026
 
+  <h2 align="center">Vulture API</h2>
 
-<h2 align="center"> [VULTURE / PROJETO] </h2>
+  <p align="center">
+  Solução IoT para monitoramento meteorológico desenvolvida pela Equipe Vulture.
+  </p>
 
-<p align="center">
-  <a href="#cliente">Cliente</a> |
-  <a href="#dor">Dor do Cliente</a> |
-  <a href="#desafio">Desafio</a> |
-  <a href="#solucao">Solução</a> |
-  <a href="#backlog">Backlog do Produto</a> |
-  <a href="#dor-ready">DoR</a> |
-  <a href="#dod">DoD</a> |
-  <a href="#requisitos">Requisitos</a> |
-  <a href="#arquitetura">Arquitetura</a> |
-  <a href="#devops">DevOps</a> |
-  <a href="#cicd">CI/CD</a> |
-  <a href="#branch">Estratégia de Branch</a> |
-  <a href="#jira">Integração Jira + GitHub</a> |
-  <a href="#instalacao">Manual de Instalação</a> |
-  <a href="#soft">Manual de Software</a> |
-  <a href="#sprint">Cronograma de Sprints</a> |
-  <a href="#tecnologias">Tecnologias</a> |
-  <a href="#equipe">Equipe</a>
-</p>
+  > **Status do Projeto:** Sprint 1 em andamento  
+  > **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog  
+  > **Confluence:** https://vultureapi.atlassian.net/wiki/x/AYA7
 
-> **Status do Projeto:** Planejamento / Pré-Kick-off ⏳
->
-> **Documentação:** [Adicionar link]
->
-> **Jira:** [Acessar o Jira do projeto](https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
->
-> **Vídeo do Projeto:** [Adicionar link]
+  ---
 
----
+  # 🎯 Descrição do Desafio
 
-## 🏢 Cliente <a id="cliente"></a>
+  ## 🏢 Cliente / Parceiro
 
-[Preencher após o Kick-off.]
+  A **Tecsus** é a empresa cliente do projeto AgroClima 360.
 
----
+  O projeto está sendo desenvolvido com foco na expansão do portfólio de soluções IoT da empresa, por meio da criação de uma solução de monitoramento meteorológico capaz de coletar, processar, armazenar e disponibilizar dados ambientais.
 
-## 😢 Dor do Cliente <a id="dor"></a>
+  ## 😢 Dor do Cliente
 
-[Preencher após o Kick-off.]
+  A Tecsus busca expandir seu portfólio de soluções IoT para o segmento de monitoramento ambiental.
 
----
+  A empresa necessita validar uma solução baseada em estação meteorológica que possua uma estrutura básica de software capaz de:
 
-## 🏅 Desafio <a id="desafio"></a>
+  - receber dados provenientes de uma estação meteorológica;
+  - processar e tratar essas informações;
+  - armazenar os dados de forma persistente;
+  - disponibilizar as informações por meio de uma aplicação web;
+  - permitir evolução futura para múltiplas estações, sensores e cenários de monitoramento.
 
-[Preencher após o Kick-off.]
+  A dor principal é **validar uma nova solução tecnológica que possa futuramente integrar o portfólio da empresa**.
 
----
+  ## 🏅 Desafio
 
-## 💡 Solução <a id="solucao"></a>
+  Construir uma solução de monitoramento meteorológico capaz de demonstrar, de forma simples e funcional, a proposta tecnológica da Tecsus.
 
-[Preencher após o Kick-off.]
+  Para a primeira entrega, a equipe prioriza:
 
----
+  - arquitetura definida;
+  - banco de dados operacional;
+  - CRUD funcional;
+  - front-end integrado.
 
-# 📋 Backlog do Produto <a id="backlog"></a>
+  ## 💡 Solução
 
-[Preencher após levantamento e refinamento do Product Backlog.]
+  O **AgroClima 360** propõe uma solução modular capaz de receber, processar, armazenar e disponibilizar dados ambientais por meio de uma aplicação web.
 
-| Rank | Prioridade | User Story | Estimativa | Sprint | Status |
-| :--: | :--------: | ---------- | :--------: | :----: | :----: |
-|      |            |            |            |        |        |
+  A proposta contempla:
 
----
+  - estações meteorológicas e sensores;
+  - comunicação entre componentes;
+  - armazenamento temporário;
+  - tratamento e validação dos dados;
+  - persistência definitiva;
+  - APIs;
+  - front-end;
+  - testes, monitoramento e integração contínua.
 
-# ✅ Definition of Ready e Definition of Done
+  Enquanto o hardware físico não estiver disponível, poderão ser utilizados **dados simulados**.
 
-## 🏃 DoR — Definition of Ready <a id="dor-ready"></a>
+  ---
 
-[Definir após o Kick-off.]
+  # 📋 Backlog do Produto
 
----
+  O Product Backlog é mantido e refinado continuamente no Jira e no Confluence.
 
-## 🏆 DoD — Definition of Done <a id="dod"></a>
+  > **Jira e Confluence são as fontes oficiais e mais atualizadas do backlog.**
 
-[Definir após o Kick-off.]
+  | ID | Prioridade | User Story | Planning Poker | Sprint |
+  | :--: | :--: | --- | :--: | :--: |
+  | US1 | Alta | Cadastrar e gerenciar estações meteorológicas. | 8 | 1 |
+  | US2 | Alta | Cadastrar sensores e parâmetros. | 8 | 1 |
+  | US3 | Alta | Cadastrar e gerenciar usuários. | 8 | 1 |
+  | US4 | Alta | Visualizar o status das estações. | 5 | 1 |
+  | US5 | Alta | Cadastrar e configurar alertas meteorológicos. | 5 | 1 |
+  | US6 | Alta | Garantir disponibilidade e escalabilidade do sistema. | 13 | 1 |
+  | US7 | Alta | Visualizar dados meteorológicos atuais. | 8 | 2 |
+  | US8 | Alta | Visualizar histórico dos dados. | 8 | 2 |
+  | US9 | Média | Identificar estações/sensores com falhas ou dados inconsistentes. | 13 | 2 |
+  | US10 | Média | Gerenciar níveis de acesso dos usuários. | 8 | 2 |
+  | US11 | Média | Visualizar estatísticas e previsões. | 13 | 2 |
+  | US12 | Média | Receber dados tratados das estações. | 8 | 2 |
+  | US13 | Baixa | Gerar relatórios meteorológicos. | 5 | 3 |
+  | US14 | Baixa | Visualizar dados meteorológicos como Cliente. | 8 | 3 |
+  | US15 | Baixa | Possuir pipeline de integração contínua. | 13 | 3 |
+  | US16 | Baixa | Configurar datalogger e coleta dos dados. | 13 | 3 |
 
----
+  **Totais:** Sprint 1 = 47 pontos • Sprint 2 = 58 pontos • Sprint 3 = 39 pontos.
 
-# 📝 Requisitos <a id="requisitos"></a>
+  ---
 
-## 🎯 Requisitos Funcionais — RF
+  # Arquitetura do Projeto
 
-[Preencher após o Kick-off.]
+  ![alt text](<Arquitetura Projeto.png>)
 
----
+  # 📈 Cronograma de Evolução
 
-## ⚙️ Requisitos Não Funcionais — RNF
+  ```mermaid
+  flowchart LR
+      S1["Sprint 1<br/>07/09/2026 a 27/09/2026<br/>Arquitetura + Banco + CRUD + Front"]
+      S2["Sprint 2<br/>Período a definir<br/>Evolução funcional"]
+      S3["Sprint 3<br/>Período a definir<br/>Integração final, CI e hardware"]
+      S1 --> S2 --> S3
+  ```
 
-[Preencher após o Kick-off.]
+  ---
 
----
+  # 🗓️ Sprints
 
-# 🏗️ Arquitetura do Sistema <a id="arquitetura"></a>
+  | Sprint | Período | Documentação da Sprint | Vídeo do Incremento |
+  | :---: | --- | --- | --- |
+  | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/) | A adicionar |
+  | Sprint 2 | A definir | A adicionar | A adicionar |
+  | Sprint 3 | A definir | A adicionar | A adicionar |
 
-[Definir após o Kick-off e escolha das tecnologias.]
+  ---
 
-## Diagrama de Arquitetura
+  ## 💻 Tecnologias <a id="tecnologias"></a>
 
-[Adicionar diagrama.]
+<h4 align="center">
 
-## Componentes
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  </a>
 
-[Preencher.]
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  </a>
 
-## Banco de Dados
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  </a>
 
-[Preencher.]
+  <a href="https://nodejs.org/">
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+  </a>
 
-## APIs / Integrações
+  <a href="https://react.dev/">
+    <img src="https://img.shields.io/badge/React-087EA4?style=for-the-badge&logo=react&logoColor=white"/>
+  </a>
 
-[Preencher.]
+  <a href="https://nextjs.org/">
+    <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
+  </a>
 
----
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+  </a>
 
-# ♾️ DevOps <a id="devops"></a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  </a>
 
-As práticas de DevOps serão realizadas de forma colaborativa por toda a equipe.
+  <a href="https://isocpp.org/">
+    <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  </a>
 
-O planejamento deverá contemplar:
+  <a href="https://www.c-language.org/">
+    <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black"/>
+  </a>
 
-* desenvolvimento;
-* versionamento;
-* integração contínua;
-* testes automatizados;
-* qualidade;
-* entrega;
-* deploy;
-* monitoramento;
-* feedback contínuo.
+  <a href="https://www.arduino.cc/">
+    <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white"/>
+  </a>
 
-[Detalhar estratégia após o Kick-off.]
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"/>
+  </a>
 
----
+  <a href="https://www.postgresql.org/">
+    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"/>
+  </a>
 
-# 🔄 Integração e Entrega Contínua — CI/CD <a id="cicd"></a>
+  <a href="https://mosquitto.org/">
+    <img src="https://img.shields.io/badge/Eclipse_Mosquitto-3C5280?style=for-the-badge&logo=eclipsemosquitto&logoColor=white"/>
+  </a>
 
-[Definir após escolha das tecnologias e infraestrutura.]
+  <a href="https://redis.io/">
+    <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
+  </a>
 
-## Fluxo planejado
+  <a href="https://www.docker.com/">
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  </a>
 
-```text
-Planejamento
-     ↓
-Desenvolvimento
-     ↓
-Versionamento
-     ↓
-Integração Contínua
-     ↓
-Build
-     ↓
-Testes
-     ↓
-Quality Check
-     ↓
-Deploy
-     ↓
-Monitoramento
-     ↓
-Feedback
-```
+</h4>
 
-## Pipeline
+  ---
 
-[Adicionar descrição e/ou diagrama do pipeline.]
+  # 🧱 Estrutura do Projeto
 
-## Ferramentas
+  <p align="center">
+    <img src="docs/arquitetura/arquitetura-projeto.png" alt="Arquitetura do AgroClima 360">
+  </p>
 
-[Preencher.]
+  > A arquitetura está em evolução e poderá receber ajustes após validações técnicas.
 
----
+  ---
 
-# 🌿 Estratégia de Branch <a id="branch"></a>
+  # ▶️ Como Executar, Usar e Testar
 
-[Definir estratégia após alinhamento com a disciplina de Entrega Contínua.]
+  > Esta seção será atualizada conforme os serviços executáveis forem disponibilizados.
 
-## Nomenclatura de Branches
+  ## Pré-requisitos
 
-```text
-[Definir]
-```
+  - Git
+  - Node.js
+  - npm
+  - variáveis de ambiente necessárias
 
-## Padrão de Commits
+  ## Clonar o repositório
 
-```text
-[Definir]
-```
+  ```bash
+  git clone https://github.com/Vulture-API/API-DSM-4SEMESTRE-2026.git
+  cd API-DSM-4SEMESTRE-2026
+  ```
 
-## Pull Requests
+  ## Instalar dependências
 
-[Definir política de revisão e aprovação.]
+  ```bash
+  npm install
+  ```
 
----
+  ## Ambiente
 
-# 🔗 Integração Jira + GitHub <a id="jira"></a>
+  Credenciais, tokens e segredos deverão ser configurados localmente e **não deverão ser versionados**.
 
-O Jira será utilizado para gerenciamento do trabalho da equipe e será integrado ao GitHub com o objetivo de garantir rastreabilidade entre planejamento e desenvolvimento.
+  ```text
+  .env
+  ```
 
-A integração deverá relacionar:
+  ## Execução e testes
 
-* itens do Jira;
-* User Stories;
-* Tasks;
-* branches;
-* commits;
-* Pull Requests;
-* builds;
-* testes;
-* deployments.
+  Os comandos específicos serão documentados em cada serviço à medida que forem disponibilizados.
 
-## Status da Integração
+  ---
 
-- [x] GitHub for Atlassian instalado
-- [x] Repositório conectado ao Jira
-- [x] Criação de branches vinculadas aos itens do Jira
-- [ ] Validação de commits vinculados
-- [ ] Validação de Pull Requests vinculados
+  # 📚 Documentação
 
-## Padrão de identificação
+  - 📁 [Pasta de documentação](docs/)
+  - 🔗 [Confluence](https://vultureapi.atlassian.net/wiki/x/AYA7)
 
-```text
-[CHAVE-JIRA] descrição
-```
+  ## ✅ Checklist de DoR e DoD
 
-Exemplo:
+  ### Definition of Ready — DoR
 
-```text
-PROJ-01 descricao-da-funcionalidade
-```
+  Uma User Story ou Task estará pronta quando:
 
-[Atualizar o padrão quando a chave definitiva do projeto Jira for definida.]
+  - [ ] objetivo estiver claro;
+  - [ ] estiver alinhada à Dor do Cliente;
+  - [ ] critérios de aceite estiverem definidos;
+  - [ ] regras de negócio principais estiverem documentadas;
+  - [ ] dependências forem conhecidas;
+  - [ ] impedimentos críticos tiverem tratamento;
+  - [ ] puder ser estimada;
+  - [ ] tiver sido refinada com os Developers;
+  - [ ] prioridade e Sprint estiverem definidas;
+  - [ ] puder ser decomposta em Tasks executáveis.
 
----
+  ### Definition of Done — DoD
 
-# 🧪 Estratégia de Testes
+  Uma User Story ou Task estará concluída quando:
 
-[Definir após o Kick-off.]
+  - [ ] implementação estiver concluída;
+  - [ ] critérios de aceite forem atendidos;
+  - [ ] código estiver na branch correta;
+  - [ ] commits seguirem o padrão;
+  - [ ] PR estiver aberta para `dev`;
+  - [ ] houver Code Review por outro Developer;
+  - [ ] ajustes obrigatórios estiverem resolvidos;
+  - [ ] testes pertinentes forem executados;
+  - [ ] documentação necessária estiver atualizada;
+  - [ ] não houver segredos versionados;
+  - [ ] PR estiver aprovada e integrada à `dev`;
+  - [ ] rastreabilidade Jira ↔ branch ↔ commit ↔ PR estiver preservada;
+  - [ ] item estiver disponível para demonstração;
+  - [ ] item estiver **Concluído** no Jira.
 
-## Testes Unitários
+  > Os registros de DoR e DoD específicos de cada Sprint deverão ser mantidos na documentação da respectiva Sprint.
 
-[Preencher.]
+  ---
 
-## Testes de Integração
+  ## 🌿 Estratégia de Branch
 
-[Preencher.]
+  A Equipe Vulture utiliza uma estratégia com `main` como versão estável e `dev` como branch de integração.
 
-## Testes de API
+  ```text
+  feature/docs/fix/test/chore
+            ↓
+          dev
+            ↓
+    integração e testes
+            ↓
+          main
+  ```
 
-[Preencher.]
+  ### Regras
 
-## Testes de Interface
+  - `main` representa a versão estável;
+  - `dev` é a branch de integração;
+  - branches de trabalho devem partir da `dev`;
+  - não desenvolver diretamente em `main` ou `dev`;
+  - toda integração ocorre por Pull Request;
+  - PRs passam por Code Review;
+  - sempre que possível, o autor não aprova o próprio PR.
 
-[Preencher, caso aplicável.]
+  ### Exemplos
 
----
+  ```text
+  feature/SCRUM-123-cadastro-estacao
+  fix/SCRUM-145-validacao-estacao
+  docs/SCRUM-266-regras-estacoes
+  test/SCRUM-205-testes-usuarios
+  chore/configura-pipeline
+  ```
 
-# 📊 Qualidade e Monitoramento
+  ---
 
-[Definir ferramentas e métricas.]
+  ## 📝 Padrão de Mensagens dos Commits
 
-## Qualidade de Código
+  Formato adotado conforme o guia da disciplina:
 
-[Preencher.]
+  ```text
+  <tipo> (<id_demanda1>, <id_demanda2>, ..., <id_demandaN>): <descrição da entrega>
+  ```
 
-## Logs
+  | Tipo | Uso |
+  | --- | --- |
+  | `feat` | Nova funcionalidade |
+  | `fix` | Correção de bug |
+  | `docs` | Documentação |
+  | `style` | Formatação sem impacto funcional |
+  | `refactor` | Refatoração |
+  | `test` | Testes |
+  | `chore` | Configuração ou manutenção |
 
-[Preencher.]
+  Exemplos:
 
-## Monitoramento
+  ```text
+  feat (SCRUM-101): implementa cadastro de estações
+  docs (SCRUM-266): documenta regras de gerenciamento de estações
+  fix (SCRUM-145): corrige validação do código da estação
+  test (SCRUM-205): adiciona testes do cadastro de usuários
+  ```
 
-[Preencher.]
+  ### Boas práticas de Git
 
----
+  - utilizar `.gitignore`;
+  - nunca realizar commit direto na `main`;
+  - referenciar a demanda nos commits;
+  - realizar commits pequenos e objetivos;
+  - descrever a entrega com clareza;
+  - utilizar Pull Requests;
+  - descrever implementação e testes na PR;
+  - aguardar Code Review antes do merge;
+  - sempre que possível, não aprovar o próprio PR.
 
-# 📖 Manual de Instalação <a id="instalacao"></a>
+  ---
 
-## ⚙️ Pré-requisitos
+  ## 📘 Manual do Usuário
 
-[Preencher.]
+  Será produzido conforme as funcionalidades forem concluídas.
 
----
+  ## 📖 Manual de Instalação
 
-## 🚀 Passo a Passo de Instalação
+  Será atualizado conforme os serviços e dependências finais forem consolidados.
 
-### 1. Clonar o repositório
+  ---
 
-```bash
-git clone [URL_DO_REPOSITORIO]
-cd [NOME_DO_REPOSITORIO]
-```
+  # 👥 Equipe
 
-### 2. Instalar dependências
+  | Foto | Integrante | Papel | GitHub | LinkedIn |
+  | :---: | --- | --- | :---: | :---: |
+  | <img src="https://github.com/AlineRaquelC.png?size=80" width="60"> | **Aline Raquel Camargo de Oliveira** | Scrum Master / Developer | [GitHub](https://github.com/AlineRaquelC) | [LinkedIn](https://www.linkedin.com/in/aline-oliveira-60ab6265/) |
+  | <img src="https://github.com/anajrubim.png?size=80" width="60"> | **Ana Júlia Rubim** | Product Owner / Developer | [GitHub](https://github.com/anajrubim) | [LinkedIn](https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/) |
+  | <img src="https://github.com/lucasMarinsSantos.png?size=80" width="60"> | **Lucas Marins Santos** | Developer — CI/CD | [GitHub](https://github.com/lucasMarinsSantos) | [LinkedIn](https://www.linkedin.com/in/lucasmarinssantos/) |
+  | <img src="https://github.com/EnricoGermano.png?size=80" width="60"> | **Enrico de Chiara Germano** | Developer — Deploy / Ambientes | [GitHub](https://github.com/EnricoGermano) | [LinkedIn](https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/) |
+  | <img src="https://github.com/leodaslb.png?size=80" width="60"> | **Leonardo da Silva Lopes** | Developer — Testes de Integração | [GitHub](https://github.com/leodaslb) | [LinkedIn](https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/) |
+  | <img src="https://github.com/Sette0o0.png?size=80" width="60"> | **Rafael Sette de Araújo** | Developer — Monitoramento / Observabilidade | [GitHub](https://github.com/Sette0o0) | A adicionar |
+  | — | **Vinícius Leite** | Developer — Testes Unitários | A adicionar | A adicionar |
 
-```bash
-[COMANDO]
-```
+  ---
 
-### 3. Configurar ambiente
+  # 📌 Status do Projeto
 
-```text
-[Preencher.]
-```
+  **Fase atual:** Sprint 1 em andamento.
 
-### 4. Executar aplicação
+  A equipe está trabalhando na modelagem do banco, contratos de API, estrutura de microsserviços, rastreabilidade, testes e preparação do incremento funcional da primeira Sprint.
 
-```bash
-[COMANDO]
-```
-
-### 5. Acessar o sistema
-
-```text
-[URL / PORTA]
-```
-
----
-
-# 📘 Manual de Software <a id="soft"></a>
-
-[Preencher conforme o sistema for desenvolvido.]
-
----
-
-# 🗓️ Cronograma de Sprints <a id="sprint"></a>
-
-[Preencher após definição oficial do calendário.]
-
-|  Sprint  | Período | Objetivo | Status |
-| :------: | ------- | -------- | :----: |
-| Sprint 1 |         |          |    ⏳   |
-| Sprint 2 |         |          |    ⏳   |
-| Sprint 3 |         |          |    ⏳   |
-
----
-
-# 🛠️ Tecnologias Utilizadas <a id="tecnologias"></a>
-
-[Definir após o Kick-off.]
-
-## Frontend
-
-[Preencher.]
-
-## Backend
-
-[Preencher.]
-
-## Banco de Dados
-
-[Preencher.]
-
-## DevOps / Infraestrutura
-
-[Preencher.]
-
-## Testes
-
-[Preencher.]
-
-## Gestão
-
-* GitHub
-* Jira
-
----
-
-## 👥 Equipe <a id="equipe"></a>
-
-| Integrante | Papel | GitHub | LinkedIn |
-| :--- | :--- | :---: | :---: |
-| **Aline** | Master / Developer / DevOps | <a href="https://github.com/AlineRaquelC"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/aline-oliveira-60ab6265/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Ana Julia (Rubim)** | Product Owner / DevOps | <a href="https://github.com/anajrubim"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Lucas Marins** | Developer / DevOps | <a href="https://github.com/lucasMarinsSantos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/lucasmarinssantos/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Enrico Germano** | Developer / DevOps | <a href="https://github.com/EnricoGermano"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Leonardo da Silva** | Developer / DevOps | <a href="https://github.com/leodaslb"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-
----
-
-# 📚 Documentação
-
-## Documentação Geral
-
-[Adicionar links.]
-
-## Atas de Reunião
-
-[Adicionar links.]
-
-## Documentação das Sprints
-
-[Adicionar links.]
-
-## Diagramas
-
-[Adicionar links.]
-
----
-
-# 📹 Vídeos das Entregas
-
-|  Sprint  | Vídeo       |
-| :------: | ----------- |
-| Sprint 1 | [Adicionar] |
-| Sprint 2 | [Adicionar] |
-| Sprint 3 | [Adicionar] |
-
----
-
-# 📌 Status do Projeto
-
-**Fase atual:** Pré-Kick-off.
-
-O conteúdo técnico e funcional deste README será atualizado após o Kick-off oficial, conforme definição do problema, requisitos, arquitetura, tecnologias e planejamento das Sprints.
+  Alterações relevantes de escopo, arquitetura ou processo são registradas no Jira, Confluence e na documentação versionada.
