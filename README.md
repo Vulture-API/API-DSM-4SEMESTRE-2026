@@ -93,6 +93,10 @@
 
   ---
 
+  # Arquitetura do Projeto
+
+  ![alt text](<Arquitetura Projeto.png>)
+
   # 📈 Cronograma de Evolução
 
   ```mermaid
