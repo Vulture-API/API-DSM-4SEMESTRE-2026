@@ -1,490 +1,390 @@
-# API DSM 4º SEMESTRE 2026
+  # 🌦️ AgroClima 360 — API DSM 4º Semestre 2026
 
+  <h2 align="center">Vulture API</h2>
 
-<h2 align="center"> [VULTURE / PROJETO] </h2>
+  <p align="center">
+  Solução IoT para monitoramento meteorológico desenvolvida pela Equipe Vulture.
+  </p>
 
-<p align="center">
-  <a href="#cliente">Cliente</a> |
-  <a href="#dor">Dor do Cliente</a> |
-  <a href="#desafio">Desafio</a> |
-  <a href="#solucao">Solução</a> |
-  <a href="#backlog">Backlog do Produto</a> |
-  <a href="#dor-ready">DoR</a> |
-  <a href="#dod">DoD</a> |
-  <a href="#requisitos">Requisitos</a> |
-  <a href="#arquitetura">Arquitetura</a> |
-  <a href="#devops">DevOps</a> |
-  <a href="#cicd">CI/CD</a> |
-  <a href="#branch">Estratégia de Branch</a> |
-  <a href="#jira">Integração Jira + GitHub</a> |
-  <a href="#instalacao">Manual de Instalação</a> |
-  <a href="#soft">Manual de Software</a> |
-  <a href="#sprint">Cronograma de Sprints</a> |
-  <a href="#tecnologias">Tecnologias</a> |
-  <a href="#equipe">Equipe</a>
-</p>
+  > **Status do Projeto:** Sprint 1 em andamento  
+  > **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog  
+  > **Confluence:** https://vultureapi.atlassian.net/wiki/x/AYA7
 
-> **Status do Projeto:** Planejamento / Pré-Kick-off ⏳
->
-> **Documentação:** [Adicionar link]
->
-> **Jira:** [Acessar o Jira do projeto](https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
->
-> **Vídeo do Projeto:** [Adicionar link]
+  ---
 
----
+  # 🎯 Descrição do Desafio
 
-## 🏢 Cliente <a id="cliente"></a>
+  ## 🏢 Cliente / Parceiro
 
-A **Tecsus** é a empresa cliente do projeto AgroClima 360.
+  A **Tecsus** é a empresa cliente do projeto AgroClima 360.
 
-O projeto está sendo desenvolvido com foco na expansão do portfólio de soluções IoT da empresa, por meio da criação de uma solução de monitoramento meteorológico capaz de coletar, processar, armazenar e disponibilizar dados ambientais.
+  O projeto está sendo desenvolvido com foco na expansão do portfólio de soluções IoT da empresa, por meio da criação de uma solução de monitoramento meteorológico capaz de coletar, processar, armazenar e disponibilizar dados ambientais.
 
-A proposta busca validar uma estrutura tecnológica que possa evoluir futuramente para diferentes aplicações de monitoramento ambiental e agronegócio.
----
+  ## 😢 Dor do Cliente
 
-## 😢 Dor do Cliente <a id="dor"></a>
+  A Tecsus busca expandir seu portfólio de soluções IoT para o segmento de monitoramento ambiental.
 
-A **Tecsus** busca expandir seu portfólio de soluções IoT para o segmento de monitoramento ambiental.
+  A empresa necessita validar uma solução baseada em estação meteorológica que possua uma estrutura básica de software capaz de:
 
-Atualmente, a empresa necessita validar uma solução baseada em estação meteorológica que possua uma estrutura básica de software capaz de:
+  - receber dados provenientes de uma estação meteorológica;
+  - processar e tratar essas informações;
+  - armazenar os dados de forma persistente;
+  - disponibilizar as informações por meio de uma aplicação web;
+  - permitir evolução futura para múltiplas estações, sensores e cenários de monitoramento.
 
-- receber dados provenientes de uma estação meteorológica;
-- processar e tratar essas informações;
-- armazenar os dados de forma persistente;
-- disponibilizar as informações por meio de uma aplicação web;
-- permitir evolução futura da solução para múltiplas estações, sensores e cenários de monitoramento.
+  A dor principal é **validar uma nova solução tecnológica que possa futuramente integrar o portfólio da empresa**.
 
-A dor principal, portanto, não está relacionada a uma necessidade agronômica específica de plantio, colheita ou pulverização, mas à necessidade de **validar uma nova solução tecnológica que possa futuramente integrar o portfólio da empresa**.
+  ## 🏅 Desafio
 
-O projeto AgroClima 360 surge como uma prova funcional dessa solução, priorizando inicialmente uma estrutura simples, integrada e evolutiva.
+  Construir uma solução de monitoramento meteorológico capaz de demonstrar, de forma simples e funcional, a proposta tecnológica da Tecsus.
 
----
+  Para a primeira entrega, a equipe prioriza:
 
-## 🏅 Desafio <a id="desafio"></a>
+  - arquitetura definida;
+  - banco de dados operacional;
+  - CRUD funcional;
+  - front-end integrado.
 
-O principal desafio do projeto é construir uma solução de monitoramento meteorológico que valide, de forma simples e funcional, a proposta tecnológica da Tecsus.
+  ## 💡 Solução
 
-A equipe deverá desenvolver uma arquitetura capaz de integrar diferentes etapas do fluxo de dados, desde a origem das medições até sua disponibilização para o usuário final.
+  O **AgroClima 360** propõe uma solução modular capaz de receber, processar, armazenar e disponibilizar dados ambientais por meio de uma aplicação web.
 
-Entre os principais desafios estão:
+  A proposta contempla:
 
-- estruturar uma arquitetura modular e preparada para evolução;
-- receber dados meteorológicos provenientes de estações e sensores;
-- tratar e validar os dados recebidos;
-- armazenar as informações de forma consistente;
-- disponibilizar os dados por meio de uma aplicação web;
-- manter baixo acoplamento entre os componentes do sistema;
-- permitir evolução futura para múltiplas estações, sensores e regras de negócio;
-- garantir rastreabilidade entre requisitos, desenvolvimento, testes e entregas;
-- desenvolver a solução mesmo com dependência parcial de validações externas e com o hardware físico ainda indisponível nas primeiras etapas.
+  - estações meteorológicas e sensores;
+  - comunicação entre componentes;
+  - armazenamento temporário;
+  - tratamento e validação dos dados;
+  - persistência definitiva;
+  - APIs;
+  - front-end;
+  - testes, monitoramento e integração contínua.
 
-Para a primeira entrega, o desafio foi reduzido ao menor incremento capaz de demonstrar a viabilidade da solução, priorizando:
+  Enquanto o hardware físico não estiver disponível, poderão ser utilizados **dados simulados**.
 
-- arquitetura definida;
-- banco de dados operacional;
-- CRUD funcional;
-- front-end integrado.
----
+  ---
 
-## 💡 Solução <a id="solucao"></a>
+  # 📋 Backlog do Produto
 
-O **AgroClima 360** propõe uma solução de monitoramento meteorológico baseada em uma arquitetura modular, capaz de receber, processar, armazenar e disponibilizar dados ambientais por meio de uma aplicação web.
+  O Product Backlog é mantido e refinado continuamente no Jira e no Confluence.
 
-A solução foi estruturada para permitir evolução gradual, começando por um fluxo funcional mínimo e preparado para futura integração com hardware real.
+  > **Jira e Confluence são as fontes oficiais e mais atualizadas do backlog.**
 
-A proposta contempla:
+  | ID | Prioridade | User Story | Planning Poker | Sprint |
+  | :--: | :--: | --- | :--: | :--: |
+  | US1 | Alta | Cadastrar e gerenciar estações meteorológicas. | 8 | 1 |
+  | US2 | Alta | Cadastrar sensores e parâmetros. | 8 | 1 |
+  | US3 | Alta | Cadastrar e gerenciar usuários. | 8 | 1 |
+  | US4 | Alta | Visualizar o status das estações. | 5 | 1 |
+  | US5 | Alta | Cadastrar e configurar alertas meteorológicos. | 5 | 1 |
+  | US6 | Alta | Garantir disponibilidade e escalabilidade do sistema. | 13 | 1 |
+  | US7 | Alta | Visualizar dados meteorológicos atuais. | 8 | 2 |
+  | US8 | Alta | Visualizar histórico dos dados. | 8 | 2 |
+  | US9 | Média | Identificar estações/sensores com falhas ou dados inconsistentes. | 13 | 2 |
+  | US10 | Média | Gerenciar níveis de acesso dos usuários. | 8 | 2 |
+  | US11 | Média | Visualizar estatísticas e previsões. | 13 | 2 |
+  | US12 | Média | Receber dados tratados das estações. | 8 | 2 |
+  | US13 | Baixa | Gerar relatórios meteorológicos. | 5 | 3 |
+  | US14 | Baixa | Visualizar dados meteorológicos como Cliente. | 8 | 3 |
+  | US15 | Baixa | Possuir pipeline de integração contínua. | 13 | 3 |
+  | US16 | Baixa | Configurar datalogger e coleta dos dados. | 13 | 3 |
 
-- estações meteorológicas e sensores responsáveis pela origem dos dados;
-- comunicação entre os componentes por meio de serviços de integração;
-- armazenamento temporário para recepção e processamento dos dados;
-- tratamento e validação das informações recebidas;
-- persistência em banco de dados definitivo;
-- APIs para cadastro, consulta e gerenciamento das informações do sistema;
-- aplicação web para administração e visualização dos dados;
-- estrutura preparada para monitoramento, testes automatizados, integração contínua e evolução futura da solução.
+  **Totais:** Sprint 1 = 47 pontos • Sprint 2 = 58 pontos • Sprint 3 = 39 pontos.
 
-Durante as primeiras etapas do desenvolvimento, a equipe poderá utilizar **dados simulados** para representar o comportamento esperado das estações meteorológicas, permitindo que backend, banco de dados e front-end sejam desenvolvidos mesmo antes da disponibilização do hardware físico.
+  ---
 
-Para a primeira entrega, a solução será concentrada no menor incremento funcional capaz de demonstrar a viabilidade do projeto, incluindo:
-
-- arquitetura da solução definida;
-- banco de dados operacional;
-- CRUD das entidades priorizadas;
-- front-end funcional e integrado ao backend.
-
-A arquitetura detalhada permanece em processo de validação e poderá evoluir conforme novos alinhamentos com os professores e o cliente.
-
----
-
-# 📋 Backlog do Produto <a id="backlog"></a>
+  # 📈 Cronograma de Evolução
 
-O Product Backlog do **AgroClima 360** é mantido e refinado continuamente pela equipe no Jira e no Confluence.
+  ```mermaid
+  flowchart LR
+      S1["Sprint 1<br/>07/09/2026 a 27/09/2026<br/>Arquitetura + Banco + CRUD + Front"]
+      S2["Sprint 2<br/>Período a definir<br/>Evolução funcional"]
+      S3["Sprint 3<br/>Período a definir<br/>Integração final, CI e hardware"]
+      S1 --> S2 --> S3
+  ```
 
-As User Stories foram priorizadas de acordo com o valor para o produto, dependências técnicas e objetivos de cada Sprint. As estimativas foram realizadas por meio de **Planning Poker**.
+  ---
 
-> **Importante:** o Jira e o Confluence devem ser considerados as fontes oficiais e mais atualizadas do backlog.  
-> O resumo abaixo representa a versão atualmente planejada do produto.
+  # 🗓️ Sprints
 
-| ID | Prioridade | User Story | Planning Poker | Sprint |
-| :--: | :--: | --- | :--: | :--: |
-| US1 | Alta | Como Administrador, quero cadastrar e gerenciar estações meteorológicas, para controlar as estações instaladas. | 8 | 1 |
-| US2 | Alta | Como Administrador, quero cadastrar sensores e parâmetros, para permitir diferentes tipos de medições. | 8 | 1 |
-| US3 | Alta | Como Administrador, quero cadastrar e gerenciar usuários, para incluí-los no sistema. | 8 | 1 |
-| US4 | Alta | Como Gerente Agrícola, quero visualizar o status das estações, para identificar problemas de comunicação. | 5 | 1 |
-| US5 | Alta | Como Gerente Agrícola, quero cadastrar e configurar alertas meteorológicos, para ser avisado sobre condições críticas. | 5 | 1 |
-| US6 | Alta | Como Cliente, quero contar com a disponibilidade e escalabilidade do sistema, para suportar o crescimento das estações e atender ao SLA definido. | 13 | 1 |
-| US7 | Alta | Como Gerente Agrícola, quero visualizar os dados meteorológicos atuais, para acompanhar as condições climáticas. | 8 | 2 |
-| US8 | Alta | Como Gerente Agrícola, quero visualizar o histórico dos dados, para analisar períodos anteriores. | 8 | 2 |
-| US9 | Média | Como Administrador, quero identificar estações ou sensores com falhas ou dados inconsistentes, para facilitar a manutenção. | 13 | 2 |
-| US10 | Média | Como Administrador, quero gerenciar o acesso de usuários cadastrados no sistema, para controlar os níveis de acesso. | 8 | 2 |
-| US11 | Média | Como Gerente Agrícola, quero visualizar estatísticas dos dados, para analisar o comportamento do clima e visualizar previsões futuras. | 13 | 2 |
-| US12 | Média | Como Gerente Agrícola, quero receber os dados tratados das estações, para centralizar as informações. | 8 | 2 |
-| US13 | Baixa | Como Gerente Agrícola, quero gerar três tipos de relatórios meteorológicos, para consultar os dados coletados. | 5 | 3 |
-| US14 | Baixa | Como Cliente, quero visualizar os dados meteorológicos disponibilizados, para acompanhar as condições climáticas. | 8 | 3 |
-| US15 | Baixa | Como Cliente, quero que o sistema possua um pipeline de IC, para automação de testes e validações de código. | 13 | 3 |
-| US16 | Baixa | Como Administrador, quero configurar o datalogger e a coleta dos dados, para permitir o funcionamento da estação meteorológica. | 13 | 3 |
-
-### Distribuição atual por Sprint
-
-- **Sprint 1:** 47 pontos
-- **Sprint 2:** 58 pontos
-- **Sprint 3:** 39 pontos
-- **Total planejado:** 144 pontos
-
-### Gestão do Backlog
+  | Sprint | Período | Documentação da Sprint | Vídeo do Incremento |
+  | :---: | --- | --- | --- |
+  | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/) | A adicionar |
+  | Sprint 2 | A definir | A adicionar | A adicionar |
+  | Sprint 3 | A definir | A adicionar | A adicionar |
 
-O backlog poderá ser atualizado conforme:
+  ---
 
-- novos alinhamentos com o cliente e professores;
-- refinamento das User Stories;
-- descoberta de dependências técnicas;
-- validações realizadas durante as Sprints;
-- feedback obtido nas Sprint Reviews.
+  ## 💻 Tecnologias <a id="tecnologias"></a>
 
-Alterações relevantes de escopo, prioridade ou distribuição entre Sprints devem ser registradas na documentação de mudanças do projeto.
----
+<h4 align="center">
 
-# ✅ Definition of Ready e Definition of Done
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  </a>
 
-## 🏃 DoR — Definition of Ready <a id="dor-ready"></a>
-
-Uma User Story ou Task estará pronta para entrar em desenvolvimento quando possuir informações suficientes para que a equipe consiga executá-la sem depender de interpretações excessivas ou decisões ainda não identificadas.
-
-### Critérios de Ready
-
-- [ ] A necessidade ou objetivo da atividade está claro.
-- [ ] A User Story está alinhada à Dor do Cliente e ao objetivo do produto.
-- [ ] Os critérios de aceite estão definidos e compreendidos pela equipe.
-- [ ] As principais regras de negócio relacionadas estão documentadas.
-- [ ] Dependências conhecidas foram identificadas.
-- [ ] Impedimentos críticos foram identificados ou possuem estratégia de tratamento.
-- [ ] A equipe possui informações suficientes para estimar a atividade.
-- [ ] A User Story foi refinada com participação dos Developers.
-- [ ] A prioridade e a Sprint estão definidas.
-- [ ] A atividade pode ser decomposta em Tasks técnicas executáveis.
-
-> Quando existir alguma decisão ainda não validada pelo cliente/professor, a equipe poderá avançar utilizando uma assunção documentada, desde que a decisão seja reversível e o impacto de uma possível mudança esteja registrado.
-
----
-
-## 🏆 DoD — Definition of Done <a id="dod"></a>
-
-Uma User Story ou Task será considerada concluída somente quando atender aos critérios de qualidade e integração definidos pela equipe.
-
-### Critérios de Done
-
-- [ ] A implementação prevista foi concluída.
-- [ ] Os critérios de aceite aplicáveis foram atendidos.
-- [ ] O código foi versionado na branch correta.
-- [ ] Os commits seguem o padrão definido pela equipe.
-- [ ] A Pull Request foi aberta para a `dev`.
-- [ ] A Pull Request foi revisada por pelo menos um Developer diferente do autor.
-- [ ] Os comentários e ajustes obrigatórios do Code Review foram resolvidos.
-- [ ] Os testes pertinentes foram executados.
-- [ ] Testes unitários foram adicionados ou atualizados quando aplicável.
-- [ ] Testes de integração foram realizados quando aplicável.
-- [ ] A integração com banco de dados, API ou front-end foi validada quando necessária.
-- [ ] Não existem erros críticos conhecidos relacionados à entrega.
-- [ ] A documentação necessária foi atualizada.
-- [ ] Não existem credenciais, tokens, senhas ou informações sensíveis versionadas no repositório.
-- [ ] A Pull Request foi aprovada e integrada à `dev`.
-- [ ] A rastreabilidade entre Jira, branch, commits e Pull Request está preservada.
-- [ ] A atividade está disponível para demonstração ou validação.
-- [ ] O item foi atualizado para **Concluído** no Jira.
-
-> A conclusão de uma atividade não depende apenas da implementação do código. Testes, revisão, integração, documentação e rastreabilidade fazem parte da Definition of Done da Equipe Vulture.
-
----
-
-## 🏆 DoD — Definition of Done <a id="dod"></a>
-
-Uma User Story ou Task será considerada concluída somente quando atender aos critérios de qualidade, revisão, integração e rastreabilidade definidos pela Equipe Vulture.
-
-### Critérios de Done
-
-- [ ] A implementação prevista foi concluída.
-- [ ] Os critérios de aceite aplicáveis foram atendidos.
-- [ ] O código foi desenvolvido na branch correta da atividade.
-- [ ] Os commits seguem o padrão definido pela equipe.
-- [ ] A Pull Request foi aberta para a branch `dev`.
-- [ ] A Pull Request foi revisada por pelo menos um Developer diferente do autor.
-- [ ] Os comentários e ajustes obrigatórios do Code Review foram resolvidos.
-- [ ] Os testes pertinentes foram executados.
-- [ ] Testes unitários foram adicionados ou atualizados quando aplicável.
-- [ ] Testes de integração foram realizados quando aplicável.
-- [ ] A integração com banco de dados, API e/ou front-end foi validada quando necessária.
-- [ ] Não existem erros críticos conhecidos relacionados à entrega.
-- [ ] A documentação necessária foi atualizada.
-- [ ] Não existem credenciais, tokens, senhas ou informações sensíveis versionadas no repositório.
-- [ ] A Pull Request foi aprovada e integrada à `dev`.
-- [ ] A rastreabilidade entre Jira, branch, commits e Pull Request está preservada.
-- [ ] A entrega está disponível para demonstração ou validação.
-- [ ] O item foi atualizado para **Concluído** no Jira.
-
-> Uma atividade não é considerada concluída apenas porque o código foi implementado.  
-> Testes, Code Review, integração, documentação e rastreabilidade também fazem parte da Definition of Done da Equipe Vulture.
-
----
-
-# 📝 Requisitos <a id="requisitos"></a>
-
-Os requisitos do **AgroClima 360** foram definidos a partir da Dor do Cliente, do Product Backlog, das orientações dos professores e dos refinamentos realizados pela equipe.
-
-Os requisitos podem evoluir ao longo das Sprints conforme novas validações sejam realizadas. Alterações relevantes deverão ser registradas no Jira, Confluence e no Registro de Mudanças e Decisões do projeto.
-
----
-
-## 🎯 Requisitos Funcionais — RF
-
-Os Requisitos Funcionais representam as funcionalidades e comportamentos que o sistema deverá disponibilizar aos usuários.
-
-| ID | Requisito Funcional | Descrição |
-| :--: | --- | --- |
-| **RF01** | Gerenciar estações meteorológicas | O sistema deverá permitir cadastrar, consultar, atualizar e gerenciar estações meteorológicas. |
-| **RF02** | Gerenciar sensores | O sistema deverá permitir cadastrar e associar sensores às estações meteorológicas. |
-| **RF03** | Gerenciar parâmetros meteorológicos | O sistema deverá permitir cadastrar e configurar parâmetros utilizados pelos sensores e pelas medições. |
-| **RF04** | Gerenciar usuários | O sistema deverá permitir cadastrar, consultar, atualizar e gerenciar usuários. |
-| **RF05** | Autenticar usuários | O sistema deverá permitir autenticação dos usuários cadastrados para acesso às funcionalidades protegidas. |
-| **RF06** | Controlar níveis de acesso | O sistema deverá permitir diferentes níveis de acesso conforme o perfil do usuário. |
-| **RF07** | Visualizar estações | O sistema deverá disponibilizar uma listagem das estações cadastradas contendo informações como nome, localização e status. |
-| **RF08** | Consultar status de comunicação | O sistema deverá informar o estado de comunicação das estações, permitindo identificar se estão online ou offline. |
-| **RF09** | Receber dados meteorológicos | O sistema deverá receber dados provenientes das estações meteorológicas ou de dados simulados durante as etapas iniciais. |
-| **RF10** | Tratar dados recebidos | O sistema deverá validar, tratar e preparar os dados meteorológicos recebidos antes da persistência definitiva. |
-| **RF11** | Armazenar dados meteorológicos | O sistema deverá armazenar de forma persistente as informações tratadas das estações e sensores. |
-| **RF12** | Consultar dados meteorológicos atuais | O sistema deverá permitir a visualização dos dados meteorológicos mais recentes. |
-| **RF13** | Consultar histórico | O sistema deverá permitir consultas aos dados meteorológicos armazenados anteriormente. |
-| **RF14** | Configurar alertas meteorológicos | O sistema deverá permitir cadastrar e configurar regras e limites para alertas meteorológicos. |
-| **RF15** | Listar alertas cadastrados | O sistema deverá disponibilizar uma listagem dos alertas configurados. |
-| **RF16** | Identificar falhas ou inconsistências | O sistema deverá auxiliar na identificação de estações, sensores ou dados que apresentem falhas ou inconsistências. |
-| **RF17** | Disponibilizar dados por API | O backend deverá disponibilizar endpoints para comunicação com o front-end e demais componentes da solução. |
-| **RF18** | Exibir informações em aplicação web | O sistema deverá possuir uma interface web para cadastro, gerenciamento e visualização das informações. |
-
-> Os recursos de notificações visuais dinâmicas, como popups ou indicadores de alerta em tempo real, poderão ser incorporados em Sprints futuras conforme priorização do Product Backlog.
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  </a>
 
----
-
-## ⚙️ Requisitos Não Funcionais — RNF
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  </a>
 
-Os Requisitos Não Funcionais definem características de qualidade, desempenho, segurança, manutenção e operação da solução.
+  <a href="https://nodejs.org/">
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+  </a>
 
-| ID | Requisito Não Funcional | Descrição |
-| :--: | --- | --- |
-| **RNF01** | Arquitetura modular | A solução deverá possuir uma arquitetura organizada em componentes ou serviços com responsabilidades bem definidas. |
-| **RNF02** | Escalabilidade | A arquitetura deverá permitir crescimento da quantidade de estações, sensores e volume de dados sem exigir reestruturação completa da solução. |
-| **RNF03** | Disponibilidade | O sistema deverá ser estruturado para manter os serviços essenciais disponíveis conforme os requisitos de SLA definidos para o projeto. |
-| **RNF04** | Desempenho | O fluxo de dados deverá considerar como referência uma latência de até **1,5 segundo** para operações consideradas próximas de tempo real. |
-| **RNF05** | Persistência dos dados | Dados tratados que necessitem de histórico deverão ser armazenados em banco de dados persistente. |
-| **RNF06** | Uso de armazenamento temporário | Dados recebidos poderão utilizar armazenamento intermediário antes de seu tratamento e persistência definitiva. |
-| **RNF07** | Cache | Informações frequentemente consultadas poderão utilizar mecanismos de cache para reduzir tempo de resposta e carga sobre o banco de dados. |
-| **RNF08** | Segurança | O sistema não deverá armazenar no repositório credenciais, tokens, senhas ou segredos de ambiente. |
-| **RNF09** | Controle de acesso | Funcionalidades administrativas deverão ser protegidas de acordo com o nível de acesso do usuário. |
-| **RNF10** | Rastreabilidade | O desenvolvimento deverá manter rastreabilidade entre Jira, branches, commits, Pull Requests, Code Reviews e entregas. |
-| **RNF11** | Versionamento | O código deverá ser versionado utilizando Git e o fluxo oficial de branches da equipe. |
-| **RNF12** | Code Review | Alterações deverão passar por Pull Request e revisão de pelo menos um Developer diferente do autor antes da integração. |
-| **RNF13** | Testabilidade | Os componentes deverão ser desenvolvidos de forma que permitam execução de testes unitários e de integração quando aplicável. |
-| **RNF14** | Integração contínua | O projeto deverá evoluir para possuir pipeline de integração contínua responsável por automatizar verificações, testes e validações de código. |
-| **RNF15** | Observabilidade | A solução deverá permitir evolução para monitoramento por meio de logs, métricas, status dos serviços e acompanhamento de latência. |
-| **RNF16** | Manutenibilidade | O código deverá seguir padrões de organização, nomenclatura e estrutura definidos pela equipe. |
-| **RNF17** | Documentação | APIs, contratos, arquitetura, banco de dados e processos técnicos relevantes deverão possuir documentação atualizada. |
-| **RNF18** | Evolução independente | Os componentes da solução deverão ser estruturados de forma a reduzir acoplamento e facilitar manutenção e evolução futura. |
+  <a href="https://react.dev/">
+    <img src="https://img.shields.io/badge/React-087EA4?style=for-the-badge&logo=react&logoColor=white"/>
+  </a>
 
----
+  <a href="https://nextjs.org/">
+    <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
+  </a>
 
-### 📌 Observação
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+  </a>
 
-Os requisitos apresentados representam o entendimento atual do projeto.
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  </a>
 
-Requisitos ainda sujeitos a validação com os professores ou cliente deverão ser tratados como **assunções documentadas**, permitindo que a equipe avance em decisões reversíveis sem perder rastreabilidade.
+  <a href="https://isocpp.org/">
+    <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  </a>
 
-Mudanças relevantes deverão ser registradas antes de serem incorporadas definitivamente ao desenvolvimento.
+  <a href="https://www.c-language.org/">
+    <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black"/>
+  </a>
 
----
+  <a href="https://www.arduino.cc/">
+    <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white"/>
+  </a>
 
-## Fluxo planejado
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"/>
+  </a>
 
-```text
-Planejamento
-     ↓
-Desenvolvimento
-     ↓
-Versionamento
-     ↓
-Integração Contínua
-     ↓
-Build
-     ↓
-Testes
-     ↓
-Quality Check
-     ↓
-Deploy
-     ↓
-Monitoramento
-     ↓
-Feedback
-```
+  <a href="https://www.postgresql.org/">
+    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"/>
+  </a>
 
+  <a href="https://mosquitto.org/">
+    <img src="https://img.shields.io/badge/Eclipse_Mosquitto-3C5280?style=for-the-badge&logo=eclipsemosquitto&logoColor=white"/>
+  </a>
 
----
+  <a href="https://redis.io/">
+    <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
+  </a>
 
+  <a href="https://www.docker.com/">
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  </a>
 
-# 📖 Manual de Instalação <a id="instalacao"></a>
+</h4>
 
-## ⚙️ Pré-requisitos
+  ---
 
-[Preencher.]
+  # 🧱 Estrutura do Projeto
 
----
+  <p align="center">
+    <img src="docs/arquitetura/arquitetura-projeto.png" alt="Arquitetura do AgroClima 360">
+  </p>
 
-## 🚀 Passo a Passo de Instalação
+  > A arquitetura está em evolução e poderá receber ajustes após validações técnicas.
 
-### 1. Clonar o repositório
+  ---
 
-```bash
-git clone [URL_DO_REPOSITORIO]
-cd [NOME_DO_REPOSITORIO]
-```
+  # ▶️ Como Executar, Usar e Testar
 
-### 2. Instalar dependências
+  > Esta seção será atualizada conforme os serviços executáveis forem disponibilizados.
 
-```bash
-[COMANDO]
-```
+  ## Pré-requisitos
 
-### 3. Configurar ambiente
+  - Git
+  - Node.js
+  - npm
+  - variáveis de ambiente necessárias
 
-```text
-[Preencher.]
-```
+  ## Clonar o repositório
 
-### 4. Executar aplicação
+  ```bash
+  git clone https://github.com/Vulture-API/API-DSM-4SEMESTRE-2026.git
+  cd API-DSM-4SEMESTRE-2026
+  ```
 
-```bash
-[COMANDO]
-```
+  ## Instalar dependências
 
-### 5. Acessar o sistema
+  ```bash
+  npm install
+  ```
 
-```text
-[URL / PORTA]
-```
+  ## Ambiente
 
----
+  Credenciais, tokens e segredos deverão ser configurados localmente e **não deverão ser versionados**.
 
-# 📘 Manual de Software <a id="soft"></a>
+  ```text
+  .env
+  ```
 
-[Preencher conforme o sistema for desenvolvido.]
+  ## Execução e testes
 
----
+  Os comandos específicos serão documentados em cada serviço à medida que forem disponibilizados.
 
-# 🗓️ Cronograma de Sprints <a id="sprint"></a>
+  ---
 
-[Preencher após definição oficial do calendário.]
+  # 📚 Documentação
 
-|  Sprint  | Período | Objetivo | Status |
-| :------: | ------- | -------- | :----: |
-| Sprint 1 |         |          |    ⏳   |
-| Sprint 2 |         |          |    ⏳   |
-| Sprint 3 |         |          |    ⏳   |
+  - 📁 [Pasta de documentação](docs/)
+  - 🔗 [Confluence](https://vultureapi.atlassian.net/wiki/x/AYA7)
 
----
+  ## ✅ Checklist de DoR e DoD
 
-# 🛠️ Tecnologias Utilizadas <a id="tecnologias"></a>
+  ### Definition of Ready — DoR
 
-[Definir após o Kick-off.]
+  Uma User Story ou Task estará pronta quando:
 
-## Frontend
+  - [ ] objetivo estiver claro;
+  - [ ] estiver alinhada à Dor do Cliente;
+  - [ ] critérios de aceite estiverem definidos;
+  - [ ] regras de negócio principais estiverem documentadas;
+  - [ ] dependências forem conhecidas;
+  - [ ] impedimentos críticos tiverem tratamento;
+  - [ ] puder ser estimada;
+  - [ ] tiver sido refinada com os Developers;
+  - [ ] prioridade e Sprint estiverem definidas;
+  - [ ] puder ser decomposta em Tasks executáveis.
 
-[Preencher.]
+  ### Definition of Done — DoD
 
-## Backend
-'
-[Preencher.]
+  Uma User Story ou Task estará concluída quando:
 
-## Banco de Dados
+  - [ ] implementação estiver concluída;
+  - [ ] critérios de aceite forem atendidos;
+  - [ ] código estiver na branch correta;
+  - [ ] commits seguirem o padrão;
+  - [ ] PR estiver aberta para `dev`;
+  - [ ] houver Code Review por outro Developer;
+  - [ ] ajustes obrigatórios estiverem resolvidos;
+  - [ ] testes pertinentes forem executados;
+  - [ ] documentação necessária estiver atualizada;
+  - [ ] não houver segredos versionados;
+  - [ ] PR estiver aprovada e integrada à `dev`;
+  - [ ] rastreabilidade Jira ↔ branch ↔ commit ↔ PR estiver preservada;
+  - [ ] item estiver disponível para demonstração;
+  - [ ] item estiver **Concluído** no Jira.
 
-[Preencher.]
+  > Os registros de DoR e DoD específicos de cada Sprint deverão ser mantidos na documentação da respectiva Sprint.
 
-## DevOps / Infraestrutura
+  ---
 
-[Preencher.]
+  ## 🌿 Estratégia de Branch
 
-## Testes
+  A Equipe Vulture utiliza uma estratégia com `main` como versão estável e `dev` como branch de integração.
 
-[Preencher.]
+  ```text
+  feature/docs/fix/test/chore
+            ↓
+          dev
+            ↓
+    integração e testes
+            ↓
+          main
+  ```
 
-## Gestão
+  ### Regras
 
-* GitHub
-* Jira
+  - `main` representa a versão estável;
+  - `dev` é a branch de integração;
+  - branches de trabalho devem partir da `dev`;
+  - não desenvolver diretamente em `main` ou `dev`;
+  - toda integração ocorre por Pull Request;
+  - PRs passam por Code Review;
+  - sempre que possível, o autor não aprova o próprio PR.
 
----
+  ### Exemplos
 
-## 👥 Equipe <a id="equipe"></a>
+  ```text
+  feature/SCRUM-123-cadastro-estacao
+  fix/SCRUM-145-validacao-estacao
+  docs/SCRUM-266-regras-estacoes
+  test/SCRUM-205-testes-usuarios
+  chore/configura-pipeline
+  ```
 
-| Integrante | Papel | GitHub | LinkedIn |
-| :--- | :--- | :---: | :---: |
-| **Aline** | Master / Developer / DevOps | <a href="https://github.com/AlineRaquelC"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/aline-oliveira-60ab6265/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Ana Julia (Rubim)** | Product Owner / DevOps | <a href="https://github.com/anajrubim"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Lucas Marins** | Developer / DevOps | <a href="https://github.com/lucasMarinsSantos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/lucasmarinssantos/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Enrico Germano** | Developer / DevOps | <a href="https://github.com/EnricoGermano"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Leonardo da Silva** | Developer / DevOps | <a href="https://github.com/leodaslb"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+  ---
 
----
+  ## 📝 Padrão de Mensagens dos Commits
 
-# 📚 Documentação
+  Formato adotado conforme o guia da disciplina:
 
-## Documentação Geral
+  ```text
+  <tipo> (<id_demanda1>, <id_demanda2>, ..., <id_demandaN>): <descrição da entrega>
+  ```
 
-[Adicionar links.]
+  | Tipo | Uso |
+  | --- | --- |
+  | `feat` | Nova funcionalidade |
+  | `fix` | Correção de bug |
+  | `docs` | Documentação |
+  | `style` | Formatação sem impacto funcional |
+  | `refactor` | Refatoração |
+  | `test` | Testes |
+  | `chore` | Configuração ou manutenção |
 
-## Atas de Reunião
+  Exemplos:
 
-[Adicionar links.]
+  ```text
+  feat (SCRUM-101): implementa cadastro de estações
+  docs (SCRUM-266): documenta regras de gerenciamento de estações
+  fix (SCRUM-145): corrige validação do código da estação
+  test (SCRUM-205): adiciona testes do cadastro de usuários
+  ```
 
-## Documentação das Sprints
+  ### Boas práticas de Git
 
-[Adicionar links.]
+  - utilizar `.gitignore`;
+  - nunca realizar commit direto na `main`;
+  - referenciar a demanda nos commits;
+  - realizar commits pequenos e objetivos;
+  - descrever a entrega com clareza;
+  - utilizar Pull Requests;
+  - descrever implementação e testes na PR;
+  - aguardar Code Review antes do merge;
+  - sempre que possível, não aprovar o próprio PR.
 
-## Diagramas
+  ---
 
-[Adicionar links.]
+  ## 📘 Manual do Usuário
 
----
+  Será produzido conforme as funcionalidades forem concluídas.
 
-# 📹 Vídeos das Entregas
+  ## 📖 Manual de Instalação
 
-|  Sprint  | Vídeo       |
-| :------: | ----------- |
-| Sprint 1 | [Adicionar] |
-| Sprint 2 | [Adicionar] |
-| Sprint 3 | [Adicionar] |
+  Será atualizado conforme os serviços e dependências finais forem consolidados.
 
----
+  ---
 
-# 📌 Status do Projeto
+  # 👥 Equipe
 
-**Fase atual:** Pré-Kick-off.
+  | Foto | Integrante | Papel | GitHub | LinkedIn |
+  | :---: | --- | --- | :---: | :---: |
+  | <img src="https://github.com/AlineRaquelC.png?size=80" width="60"> | **Aline Raquel Camargo de Oliveira** | Scrum Master / Developer | [GitHub](https://github.com/AlineRaquelC) | [LinkedIn](https://www.linkedin.com/in/aline-oliveira-60ab6265/) |
+  | <img src="https://github.com/anajrubim.png?size=80" width="60"> | **Ana Júlia Rubim** | Product Owner / Developer | [GitHub](https://github.com/anajrubim) | [LinkedIn](https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/) |
+  | <img src="https://github.com/lucasMarinsSantos.png?size=80" width="60"> | **Lucas Marins Santos** | Developer — CI/CD | [GitHub](https://github.com/lucasMarinsSantos) | [LinkedIn](https://www.linkedin.com/in/lucasmarinssantos/) |
+  | <img src="https://github.com/EnricoGermano.png?size=80" width="60"> | **Enrico de Chiara Germano** | Developer — Deploy / Ambientes | [GitHub](https://github.com/EnricoGermano) | [LinkedIn](https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/) |
+  | <img src="https://github.com/leodaslb.png?size=80" width="60"> | **Leonardo da Silva Lopes** | Developer — Testes de Integração | [GitHub](https://github.com/leodaslb) | [LinkedIn](https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/) |
+  | <img src="https://github.com/Sette0o0.png?size=80" width="60"> | **Rafael Sette de Araújo** | Developer — Monitoramento / Observabilidade | [GitHub](https://github.com/Sette0o0) | A adicionar |
+  | — | **Vinícius Leite** | Developer — Testes Unitários | A adicionar | A adicionar |
 
-O conteúdo técnico e funcional deste README será atualizado após o Kick-off oficial, conforme definição do problema, requisitos, arquitetura, tecnologias e planejamento das Sprints.
+  ---
+
+  # 📌 Status do Projeto
+
+  **Fase atual:** Sprint 1 em andamento.
+
+  A equipe está trabalhando na modelagem do banco, contratos de API, estrutura de microsserviços, rastreabilidade, testes e preparação do incremento funcional da primeira Sprint.
+
+  Alterações relevantes de escopo, arquitetura ou processo são registradas no Jira, Confluence e na documentação versionada.
