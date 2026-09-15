@@ -93,7 +93,7 @@
 
   ---
 
-  # Arquitetura do Projeto
+  # 🏗️ Arquitetura do Projeto
 
   ![alt text](<Arquitetura Projeto.png>)
 
@@ -191,15 +191,7 @@
 
   ---
 
-  # 🧱 Estrutura do Projeto
-
-  <p align="center">
-    <img src="docs/arquitetura/arquitetura-projeto.png" alt="Arquitetura do AgroClima 360">
-  </p>
-
-  > A arquitetura está em evolução e poderá receber ajustes após validações técnicas.
-
-  ---
+  
 
   # ▶️ Como Executar, Usar e Testar
 
@@ -371,17 +363,17 @@
 
   ---
 
-  # 👥 Equipe
+# 👥 Equipe <a id="equipe"></a>
 
-  | Foto | Integrante | Papel | GitHub | LinkedIn |
-  | :---: | --- | --- | :---: | :---: |
-  | <img src="https://github.com/AlineRaquelC.png?size=80" width="60"> | **Aline Raquel Camargo de Oliveira** | Scrum Master / Developer | [GitHub](https://github.com/AlineRaquelC) | [LinkedIn](https://www.linkedin.com/in/aline-oliveira-60ab6265/) |
-  | <img src="https://github.com/anajrubim.png?size=80" width="60"> | **Ana Júlia Rubim** | Product Owner / Developer | [GitHub](https://github.com/anajrubim) | [LinkedIn](https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/) |
-  | <img src="https://github.com/lucasMarinsSantos.png?size=80" width="60"> | **Lucas Marins Santos** | Developer — CI/CD | [GitHub](https://github.com/lucasMarinsSantos) | [LinkedIn](https://www.linkedin.com/in/lucasmarinssantos/) |
-  | <img src="https://github.com/EnricoGermano.png?size=80" width="60"> | **Enrico de Chiara Germano** | Developer — Deploy / Ambientes | [GitHub](https://github.com/EnricoGermano) | [LinkedIn](https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/) |
-  | <img src="https://github.com/leodaslb.png?size=80" width="60"> | **Leonardo da Silva Lopes** | Developer — Testes de Integração | [GitHub](https://github.com/leodaslb) | [LinkedIn](https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/) |
-  | <img src="https://github.com/Sette0o0.png?size=80" width="60"> | **Rafael Sette de Araújo** | Developer — Monitoramento / Observabilidade | [GitHub](https://github.com/Sette0o0) | A adicionar |
-  | — | **Vinícius Leite** | Developer — Testes Unitários | A adicionar | A adicionar |
+| Integrante | Papel | GitHub | LinkedIn |
+| :--- | :--- | :---: | :---: |
+| **Aline Raquel Camargo de Oliveira** | Scrum Master / Developer | <a href="https://github.com/AlineRaquelC"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/aline-oliveira-60ab6265/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Ana Júlia Rubim** | Product Owner / Developer | <a href="https://github.com/anajrubim"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Lucas Marins Santos** | Developer — CI/CD | <a href="https://github.com/lucasMarinsSantos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/lucasmarinssantos/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Enrico de Chiara Germano** | Developer — Deploy / Ambientes | <a href="https://github.com/EnricoGermano"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Leonardo da Silva Lopes** | Developer — Testes de Integração | <a href="https://github.com/leodaslb"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Rafael Sette de Araújo** | Developer — Monitoramento / Observabilidade | <a href="https://github.com/Sette0o0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/rafael-sette-de-araujo-229b88334/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Vinícius Leite** | Developer — Testes Unitários | <a href="https://github.com/vinislvleite"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/vin%C3%ADcius-leite-4792b02ba/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
 
   ---
 
