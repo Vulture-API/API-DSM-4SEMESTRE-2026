@@ -12,55 +12,20 @@
 
   ---
 
-  # 🎯 Descrição do Desafio
-
-  ## 🏢 Cliente / Parceiro
-
-  A **Tecsus** é a empresa cliente do projeto AgroClima 360.
-
-  O projeto está sendo desenvolvido com foco na expansão do portfólio de soluções IoT da empresa, por meio da criação de uma solução de monitoramento meteorológico capaz de coletar, processar, armazenar e disponibilizar dados ambientais.
-
   ## 😢 Dor do Cliente
 
-  A Tecsus busca expandir seu portfólio de soluções IoT para o segmento de monitoramento ambiental.
-
-  A empresa necessita validar uma solução baseada em estação meteorológica que possua uma estrutura básica de software capaz de:
-
-  - receber dados provenientes de uma estação meteorológica;
-  - processar e tratar essas informações;
-  - armazenar os dados de forma persistente;
-  - disponibilizar as informações por meio de uma aplicação web;
-  - permitir evolução futura para múltiplas estações, sensores e cenários de monitoramento.
-
-  A dor principal é **validar uma nova solução tecnológica que possa futuramente integrar o portfólio da empresa**.
+  A principal dor está no desejo de coletar, processar e disponibilizar, de forma confiável e quase em tempo real, os grandes volumes de dados climáticos gerados por uma quantidade crescente de sensores distribuídos em áreas agrícolas extensas, mantendo a disponibilidade e a precisão das informações, afim de expandir seu portfólio.
 
   ## 🏅 Desafio
 
-  Construir uma solução de monitoramento meteorológico capaz de demonstrar, de forma simples e funcional, a proposta tecnológica da Tecsus.
-
-  Para a primeira entrega, a equipe prioriza:
-
-  - arquitetura definida;
-  - banco de dados operacional;
-  - CRUD funcional;
-  - front-end integrado.
+  Desenvolver uma solução de estação meteorológica capaz de coletar, processar, armazenar e disponibilizar dados climáticos de forma confiável e quase em tempo real, garantindo escalabilidade, disponibilidade, integridade dos dados e monitoramento dos sensores, mesmo com o crescimento da quantidade de dispositivos e das áreas agrícolas atendidas.
 
   ## 💡 Solução
 
-  O **AgroClima 360** propõe uma solução modular capaz de receber, processar, armazenar e disponibilizar dados ambientais por meio de uma aplicação web.
+  Desenvolver uma solução integrada de monitoramento meteorológico composta por uma estação
+  meteorológica de baixo custo, um datalogger e uma plataforma web.
 
-  A proposta contempla:
-
-  - estações meteorológicas e sensores;
-  - comunicação entre componentes;
-  - armazenamento temporário;
-  - tratamento e validação dos dados;
-  - persistência definitiva;
-  - APIs;
-  - front-end;
-  - testes, monitoramento e integração contínua.
-
-  Enquanto o hardware físico não estiver disponível, poderão ser utilizados **dados simulados**.
+  A estação meteorológica será responsável pela coleta periódica de dados por meio de sensores, como temperatura, umidade, precipitação e outras variáveis definidas para o projeto. Essas medições serão realizadas em intervalos previamente configurados.
 
   ---
 
@@ -68,26 +33,24 @@
 
   O Product Backlog é mantido e refinado continuamente no Jira e no Confluence.
 
-  > **Jira e Confluence são as fontes oficiais e mais atualizadas do backlog.**
-
-  | ID | Prioridade | User Story | Planning Poker | Sprint |
-  | :--: | :--: | --- | :--: | :--: |
-  | US1 | Alta | Cadastrar e gerenciar estações meteorológicas. | 8 | 1 |
-  | US2 | Alta | Cadastrar sensores e parâmetros. | 8 | 1 |
-  | US3 | Alta | Cadastrar e gerenciar usuários. | 8 | 1 |
-  | US4 | Alta | Visualizar o status das estações. | 5 | 1 |
-  | US5 | Alta | Cadastrar e configurar alertas meteorológicos. | 5 | 1 |
-  | US6 | Alta | Garantir disponibilidade e escalabilidade do sistema. | 13 | 1 |
-  | US7 | Alta | Visualizar dados meteorológicos atuais. | 8 | 2 |
-  | US8 | Alta | Visualizar histórico dos dados. | 8 | 2 |
-  | US9 | Média | Identificar estações/sensores com falhas ou dados inconsistentes. | 13 | 2 |
-  | US10 | Média | Gerenciar níveis de acesso dos usuários. | 8 | 2 |
-  | US11 | Média | Visualizar estatísticas e previsões. | 13 | 2 |
-  | US12 | Média | Receber dados tratados das estações. | 8 | 2 |
-  | US13 | Baixa | Gerar relatórios meteorológicos. | 5 | 3 |
-  | US14 | Baixa | Visualizar dados meteorológicos como Cliente. | 8 | 3 |
-  | US15 | Baixa | Possuir pipeline de integração contínua. | 13 | 3 |
-  | US16 | Baixa | Configurar datalogger e coleta dos dados. | 13 | 3 |
+| ID | Prioridade | User Story | Planning Poker | Sprint |
+|---:|:---:|---|---:|---:|
+| 1 | Alta | Como Administrador, quero cadastrar e gerenciar estações meteorológicas, para controlar as estações instaladas. | 8 | 1 |
+| 2 | Alta | Como Administrador, quero cadastrar sensores e parâmetros, para permitir diferentes tipos de medições. | 8 | 1 |
+| 3 | Alta | Como Administrador, quero cadastrar e gerenciar usuários, para incluí-los no Sistema. | 8 | 1 |
+| 4 | Alta | Como Gerente Agrícola, quero visualizar o status das estações, para identificar problemas de comunicação. | 5 | 1 |
+| 5 | Alta | Como Gerente Agrícola, quero cadastrar e configurar alertas meteorológicos, para ser avisado sobre condições críticas. | 5 | 1 |
+| 6 | Alta | Como Cliente, quero contar com a disponibilidade e escalabilidade do sistema, para suportar o crescimento das estações e atender ao SLA definido. | 13 | 1 |
+| 7 | Alta | Como Gerente Agrícola, quero visualizar os dados meteorológicos atuais, para acompanhar as condições climáticas. | 8 | 2 |
+| 8 | Alta | Como Gerente Agrícola, quero visualizar o histórico dos dados, para analisar períodos anteriores. | 8 | 2 |
+| 9 | Média | Como Administrador, quero identificar estações ou sensores com falhas ou dados inconsistentes, para facilitar a manutenção. | 13 | 2 |
+| 10 | Média | Como Administrador, quero gerenciar o acesso de usuários cadastrados no Sistema, para controlar os níveis de acesso. | 8 | 2 |
+| 11 | Média | Como Gerente Agrícola, quero visualizar estatísticas dos dados, para analisar o comportamento do clima e visualizar previsões futuras. | 13 | 2 |
+| 12 | Média | Como Gerente Agrícola, quero receber os dados tratados das estações, para centralizar as informações. | 8 | 2 |
+| 13 | Baixa | Como Gerente Agrícola, quero gerar três tipos de relatórios meteorológicos, para consultar os dados coletados. | 5 | 3 |
+| 14 | Baixa | Como Cliente, quero visualizar os dados meteorológicos disponibilizados, para acompanhar as condições climáticas. | 8 | 3 |
+| 15 | Baixa | Como Cliente, quero que o sistema possua um pipeline de IC, para automação de testes e validações de código. | 13 | 3 |
+| 16 | Baixa | Como Administrador, quero configurar o datalogger e a coleta dos dados, para permitir o funcionamento da estação meteorológica. | 13 | 3 |
 
   **Totais:** Sprint 1 = 47 pontos • Sprint 2 = 58 pontos • Sprint 3 = 39 pontos.
 
@@ -102,8 +65,8 @@
   ```mermaid
   flowchart LR
       S1["Sprint 1<br/>07/09/2026 a 27/09/2026<br/>Arquitetura + Banco + CRUD + Front"]
-      S2["Sprint 2<br/>Período a definir<br/>Evolução funcional"]
-      S3["Sprint 3<br/>Período a definir<br/>Integração final, CI e hardware"]
+      S2["Sprint 2<br/>Período a definir<br/>"]
+      S3["Sprint 3<br/>Período a definir<br/>"]
       S1 --> S2 --> S3
   ```
 
@@ -199,10 +162,7 @@
 
   ## Pré-requisitos
 
-  - Git
-  - Node.js
-  - npm
-  - variáveis de ambiente necessárias
+  - A definir.
 
   ## Clonar o repositório
 
@@ -218,8 +178,6 @@
   ```
 
   ## Ambiente
-
-  Credenciais, tokens e segredos deverão ser configurados localmente e **não deverão ser versionados**.
 
   ```text
   .env
