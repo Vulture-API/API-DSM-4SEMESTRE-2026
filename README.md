@@ -33,24 +33,24 @@
 
   O Product Backlog é mantido e refinado continuamente no Jira e no Confluence.
 
-| ID | Prioridade | User Story | Planning Poker | 
-|---:|:---:|---|---:|---:|
-| 1 | Alta | Como Administrador, quero cadastrar e gerenciar estações meteorológicas, para controlar as estações instaladas. | 8 | 
-| 2 | Alta | Como Administrador, quero cadastrar sensores e parâmetros, para permitir diferentes tipos de medições. | 8 | 
-| 3 | Alta | Como Administrador, quero cadastrar e gerenciar usuários, para incluí-los no Sistema. | 8 | 
-| 4 | Alta | Como Gerente Agrícola, quero visualizar o status das estações, para identificar problemas de comunicação. | 5 | 
-| 5 | Alta | Como Gerente Agrícola, quero cadastrar e configurar alertas meteorológicos, para ser avisado sobre condições críticas. | 5 | 
-| 6 | Alta | Como Cliente, quero contar com a disponibilidade e escalabilidade do sistema, para suportar o crescimento das estações e atender ao SLA definido. | 13 | 
-| 7 | Alta | Como Gerente Agrícola, quero visualizar os dados meteorológicos atuais, para acompanhar as condições climáticas. | 8 | 
-| 8 | Alta | Como Gerente Agrícola, quero visualizar o histórico dos dados, para analisar períodos anteriores. | 8 | 
-| 9 | Média | Como Administrador, quero identificar estações ou sensores com falhas ou dados inconsistentes, para facilitar a manutenção. | 13 | 
-| 10 | Média | Como Administrador, quero gerenciar o acesso de usuários cadastrados no Sistema, para controlar os níveis de acesso. | 8 | 
-| 11 | Média | Como Gerente Agrícola, quero visualizar estatísticas dos dados, para analisar o comportamento do clima e visualizar previsões futuras. | 13 | 
-| 12 | Média | Como Gerente Agrícola, quero receber os dados tratados das estações, para centralizar as informações. | 8 | 
-| 13 | Baixa | Como Gerente Agrícola, quero gerar três tipos de relatórios meteorológicos, para consultar os dados coletados. | 5 | 
-| 14 | Baixa | Como Cliente, quero visualizar os dados meteorológicos disponibilizados, para acompanhar as condições climáticas. | 8 | 
-| 15 | Baixa | Como Cliente, quero que o sistema possua um pipeline de IC, para automação de testes e validações de código. | 13 | 
-| 16 | Baixa | Como Administrador, quero configurar o datalogger e a coleta dos dados, para permitir o funcionamento da estação meteorológica. | 13 | 
+| ID | Prioridade | User Story | Planning Poker |
+|---:|:---:|---|---:|
+| 1 | Alta | Como Administrador, quero cadastrar e gerenciar estações meteorológicas, para controlar as estações instaladas. | 8 |
+| 2 | Alta | Como Administrador, quero cadastrar sensores e parâmetros, para permitir diferentes tipos de medições. | 8 |
+| 3 | Alta | Como Administrador, quero cadastrar e gerenciar usuários, para incluí-los no Sistema. | 8 |
+| 4 | Alta | Como Gerente Agrícola, quero visualizar o status das estações, para identificar problemas de comunicação. | 5 |
+| 5 | Alta | Como Gerente Agrícola, quero cadastrar e configurar alertas meteorológicos, para ser avisado sobre condições críticas. | 5 |
+| 6 | Alta | Como Cliente, quero contar com a disponibilidade e escalabilidade do sistema, para suportar o crescimento das estações e atender ao SLA definido. | 13 |
+| 7 | Alta | Como Gerente Agrícola, quero visualizar os dados meteorológicos atuais, para acompanhar as condições climáticas. | 8 |
+| 8 | Alta | Como Gerente Agrícola, quero visualizar o histórico dos dados, para analisar períodos anteriores. | 8 |
+| 9 | Média | Como Administrador, quero identificar estações ou sensores com falhas ou dados inconsistentes, para facilitar a manutenção. | 13 |
+| 10 | Média | Como Administrador, quero gerenciar o acesso de usuários cadastrados no Sistema, para controlar os níveis de acesso. | 8 |
+| 11 | Média | Como Gerente Agrícola, quero visualizar estatísticas dos dados, para analisar o comportamento do clima e visualizar previsões futuras. | 13 |
+| 12 | Média | Como Gerente Agrícola, quero receber os dados tratados das estações, para centralizar as informações. | 8 |
+| 13 | Baixa | Como Gerente Agrícola, quero gerar três tipos de relatórios meteorológicos, para consultar os dados coletados. | 5 |
+| 14 | Baixa | Como Cliente, quero visualizar os dados meteorológicos disponibilizados, para acompanhar as condições climáticas. | 8 |
+| 15 | Baixa | Como Cliente, quero que o sistema possua um pipeline de IC, para automação de testes e validações de código. | 13 |
+| 16 | Baixa | Como Administrador, quero configurar o datalogger e a coleta dos dados, para permitir o funcionamento da estação meteorológica. | 13 |
 
   **Totais:** Sprint 1 = 47 pontos • Sprint 2 = 58 pontos • Sprint 3 = 39 pontos.
 
