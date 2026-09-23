@@ -76,7 +76,7 @@
 
   | Sprint | Período | Documentação da Sprint | Vídeo do Incremento |
   | :---: | --- | --- | --- |
-  | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/) | A adicionar |
+  | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/Sprint1) | A adicionar |
   | Sprint 2 | A definir | A adicionar | A adicionar |
   | Sprint 3 | A definir | A adicionar | A adicionar |
 
