@@ -1,0 +1,106 @@
+services:
+  # Microserviço: Usuários
+  - type: web
+    name: api-dsm-4-usuario
+    runtime: node
+    plan: free
+    rootDir: API-DSM-4-USUARIO
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vulture-postgres
+          property: connectionString
+
+  # Microserviço: Parâmetros e Sensores
+  - type: web
+    name: api-dsm-4-parametros
+    runtime: node
+    plan: free
+    rootDir: API-DSM-4-PARAMETROS
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vulture-postgres
+          property: connectionString
+
+  # Microserviço: Estações Meteorológicas
+  - type: web
+    name: api-dsm-4-estacoes
+    runtime: node
+    plan: free
+    rootDir: API-DSM-4-ESTACOES
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3005
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vulture-postgres
+          property: connectionString
+
+  # Microserviço: Alertas e Regras
+  - type: web
+    name: api-dsm-4-alertas
+    runtime: node
+    plan: free
+    rootDir: API-DSM-4-ALERTAS
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+      - key: RULES_ENGINE_ENABLED
+        value: "true"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vulture-postgres
+          property: connectionString
+
+  # Frontend Web Portal (Next.js)
+  - type: web
+    name: api-dsm-4-frontend
+    runtime: node
+    plan: free
+    rootDir: API-DSM-4-FRONTEND/app
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3010
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+
+databases:
+  - name: vulture-postgres
+    plan: free
+    databaseName: agritech_vulture
+    user: vulture_user

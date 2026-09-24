@@ -1,0 +1,180 @@
+name: Continuous Deployment (Producao)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  verify-prerequisites:
+    name: Validacao de Pre-requisitos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirmar branch main
+        run: |
+          echo "Iniciando pipeline de entrega continua para a branch main."
+          echo "Ambiente de destino: Producao"
+
+  deploy-backends:
+    name: Deploy Backend Microservices (Render / Docker)
+    needs: verify-prerequisites
+    runs-on: ubuntu-latest
+    steps:
+      - name: Acionar Deploy Hooks dos Servicos
+        env:
+          HOOK_UNIFICADO: ${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}
+          HOOK_USUARIO: ${{ secrets.RENDER_USUARIO_DEPLOY_HOOK }}
+          HOOK_PARAMETROS: ${{ secrets.RENDER_PARAMETROS_DEPLOY_HOOK }}
+          HOOK_ESTACOES: ${{ secrets.RENDER_ESTACOES_DEPLOY_HOOK }}
+          HOOK_ALERTAS: ${{ secrets.RENDER_ALERTAS_DEPLOY_HOOK }}
+        run: |
+          echo "Disparando requisicoes de deploy nos microservicos..."
+          
+          trigger_hook() {
+            local name=$1
+            local hook=$2
+            if [ -n "$hook" ]; then
+              echo "Acionando deploy hook para $name..."
+              STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$hook")
+              echo "Status recebido para $name: $STATUS"
+            else
+              echo "Aviso: Hook para $name nao configurado."
+            fi
+          }
+
+          if [ -n "$HOOK_UNIFICADO" ]; then
+            trigger_hook "Backend Unificado" "$HOOK_UNIFICADO"
+          fi
+          trigger_hook "API Usuario" "$HOOK_USUARIO"
+          trigger_hook "API Parametros" "$HOOK_PARAMETROS"
+          trigger_hook "API Estacoes" "$HOOK_ESTACOES"
+          trigger_hook "API Alertas" "$HOOK_ALERTAS"
+
+      - name: Smoke Test dos Microservicos (Healthcheck Polling)
+        env:
+          PROD_API_URL: ${{ secrets.PROD_API_URL }}
+          URL_USUARIO: ${{ secrets.PROD_USUARIO_URL }}
+          URL_PARAMETROS: ${{ secrets.PROD_PARAMETROS_URL }}
+          URL_ESTACOES: ${{ secrets.PROD_ESTACOES_URL }}
+          URL_ALERTAS: ${{ secrets.PROD_ALERTAS_URL }}
+        run: |
+          echo "Aguardando inicializacao dos servicos para verificacao de integridade..."
+          sleep 20
+
+          check_health() {
+            local service_name=$1
+            local base_url=$2
+            if [ -z "$base_url" ]; then
+              echo "URL para $service_name nao configurada, pulando..."
+              return 0
+            fi
+
+            local endpoint="${base_url%/}/health"
+            echo "Testando saude de $service_name em $endpoint..."
+            local success=0
+            for i in {1..10}; do
+              STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$endpoint" || true)
+              if [ "$STATUS" -eq 200 ]; then
+                echo "[$service_name] OK na tentativa $i (HTTP 200)."
+                success=1
+                break
+              fi
+              echo "[$service_name] Tentativa $i: status HTTP $STATUS. Aguardando 15s..."
+              sleep 15
+            done
+
+            if [ "$success" -ne 1 ]; then
+              echo "ERRO CRITICO: $service_name nao respondeu com HTTP 200."
+              return 1
+            fi
+          }
+
+          ERRORS=0
+          if [ -n "$PROD_API_URL" ]; then
+            check_health "API Principal" "$PROD_API_URL" || ERRORS=$((ERRORS + 1))
+          fi
+          check_health "API Usuario" "$URL_USUARIO" || ERRORS=$((ERRORS + 1))
+          check_health "API Parametros" "$URL_PARAMETROS" || ERRORS=$((ERRORS + 1))
+          check_health "API Estacoes" "$URL_ESTACOES" || ERRORS=$((ERRORS + 1))
+          check_health "API Alertas" "$URL_ALERTAS" || ERRORS=$((ERRORS + 1))
+
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "Falha no smoke test de $ERRORS servico(s)."
+            exit 1
+          fi
+          echo "Smoke tests concluidos com sucesso em todos os servicos verificados."
+
+  deploy-frontend:
+    name: Deploy Frontend (Next.js / Vercel)
+    needs: verify-prerequisites
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Deploy Frontend via Vercel CLI
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "::notice::Secrets da Vercel nao configurados no repositorio raiz. Pulando etapa CLI."
+            exit 0
+          fi
+
+          echo "Instalando Vercel CLI..."
+          npm install --global vercel@latest
+
+          if [ -d "API-DSM-4-FRONTEND/app" ]; then
+            cd API-DSM-4-FRONTEND/app
+          elif [ -d "frontend" ]; then
+            cd frontend
+          fi
+
+          echo "Obtendo configuracoes de producao da Vercel..."
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+
+          echo "Build do Frontend para producao..."
+          vercel build --prod --token="$VERCEL_TOKEN"
+
+          echo "Publicacao do build em producao..."
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+
+      - name: Smoke Test do Frontend
+        env:
+          PROD_FRONT_URL: ${{ secrets.PROD_FRONT_URL }}
+        run: |
+          if [ -z "$PROD_FRONT_URL" ]; then
+            echo "::notice::Secret PROD_FRONT_URL nao configurado. Smoke test pulado."
+            exit 0
+          fi
+
+          echo "Validando disponibilidade do portal web em $PROD_FRONT_URL..."
+          sleep 15
+          SUCCESS=0
+          for i in {1..8}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PROD_FRONT_URL" || true)
+            if [ "$HTTP_STATUS" -eq 200 ] || [ "$HTTP_STATUS" -eq 304 ]; then
+              echo "Smoke Test concluido com sucesso. Portal web operacional (HTTP $HTTP_STATUS)."
+              SUCCESS=1
+              break
+            fi
+            echo "Tentativa $i: status HTTP $HTTP_STATUS recebido. Aguardando 15s..."
+            sleep 15
+          done
+
+          if [ "$SUCCESS" -ne 1 ]; then
+            echo "::error::Falha no Smoke Test do Frontend. Codigo HTTP retornado: $HTTP_STATUS"
+            exit 1
+          fi
