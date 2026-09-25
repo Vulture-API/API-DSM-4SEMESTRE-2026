@@ -1,0 +1,125 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: vulture-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: agritech_vulture
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api-usuario:
+    build:
+      context: ./API-DSM-4-USUARIO
+      dockerfile: Dockerfile
+    container_name: vulture-api-usuario
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://postgres:postgrespassword@postgres:5432/agritech_vulture
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e 'fetch(\"http://localhost:3000/health\").then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-parametros:
+    build:
+      context: ./API-DSM-4-PARAMETROS
+      dockerfile: Dockerfile
+    container_name: vulture-api-parametros
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATABASE_URL: postgresql://postgres:postgrespassword@postgres:5432/agritech_vulture
+    ports:
+      - "3001:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e 'fetch(\"http://localhost:3000/health\").then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-estacoes:
+    build:
+      context: ./API-DSM-4-ESTACOES
+      dockerfile: Dockerfile
+    container_name: vulture-api-estacoes
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3005
+      DATABASE_URL: postgresql://postgres:postgrespassword@postgres:5432/agritech_vulture
+    ports:
+      - "3005:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e 'fetch(\"http://localhost:3000/health\").then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-alertas:
+    build:
+      context: ./API-DSM-4-ALERTAS
+      dockerfile: Dockerfile
+    container_name: vulture-api-alertas
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3002
+      RULES_ENGINE_ENABLED: "true"
+      DATABASE_URL: postgresql://postgres:postgrespassword@postgres:5432/agritech_vulture
+    ports:
+      - "3002:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e 'fetch(\"http://localhost:3000/health\").then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./API-DSM-4-FRONTEND/app
+      dockerfile: Dockerfile
+    container_name: vulture-frontend
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3010
+      API_SERVER_URL: http://api-usuario:3000
+      NEXT_PUBLIC_PARAMETERS_API_URL: http://localhost:3001
+      NEXT_PUBLIC_STATIONS_API_URL: http://localhost:3005
+    ports:
+      - "3010:3010"
+    depends_on:
+      - api-usuario
+      - api-parametros
+      - api-estacoes
+
+volumes:
+  postgres_data:
