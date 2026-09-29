@@ -58,7 +58,7 @@
 
   # 🏗️ Arquitetura do Projeto
 
-  ![alt text](<Arquitetura Projeto.png>)
+  ![Arquitetura do Projeto](.docs/arquitetura.png)
 
   # 📈 Cronograma de Evolução
 
