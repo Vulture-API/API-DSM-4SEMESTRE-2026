@@ -67,7 +67,7 @@ Principais componentes da solução:
 - **API:** responsável pela comunicação entre frontend, backend e demais componentes da solução.
 - **Monitoramento e CI:** estrutura em evolução para acompanhamento da disponibilidade, desempenho, testes e qualidade do código.
 
-![Arquitetura do Projeto](./docs/arquitetura.png)
+![Arquitetura do Projeto](./docs/arquitetura.jpg)
 
 ---
 
