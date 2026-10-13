@@ -31,7 +31,7 @@
 
   # 📋 Backlog do Produto
 
-  O Product Backlog é mantido e refinado continuamente no Jira e no Confluence.
+O Product Backlog é mantido e refinado continuamente no Jira e no Confluence.
 
 | ID | Prioridade | User Story | Planning Poker |
 |---:|:---:|---|---:|
@@ -47,37 +47,38 @@
 | 10 | Média | Como Administrador, quero gerenciar o acesso de usuários cadastrados no Sistema, para controlar os níveis de acesso. | 8 |
 | 11 | Média | Como Gerente Agrícola, quero visualizar estatísticas dos dados, para analisar o comportamento do clima e visualizar previsões futuras. | 13 |
 | 12 | Média | Como Gerente Agrícola, quero receber os dados tratados das estações, para centralizar as informações. | 8 |
-| 13 | Baixa | Como Gerente Agrícola, quero gerar três tipos de relatórios meteorológicos, para consultar os dados coletados. | 5 |
-| 14 | Baixa | Como Cliente, quero visualizar os dados meteorológicos disponibilizados, para acompanhar as condições climáticas. | 8 |
-| 15 | Baixa | Como Cliente, quero que o sistema possua um pipeline de IC, para automação de testes e validações de código. | 13 |
-| 16 | Baixa | Como Administrador, quero configurar o datalogger e a coleta dos dados, para permitir o funcionamento da estação meteorológica. | 13 |
-
-  **Totais:** Sprint 1 = 47 pontos • Sprint 2 = 58 pontos • Sprint 3 = 39 pontos.
-
-  ---
+| 13 | Alta | Como Gerente Agrícola, quero cadastrar e gerenciar propriedades agrícolas, para associá-las às estações meteorológicas e organizar o monitoramento climático de cada propriedade. | 8 |
+| 16 | Baixa | Como Cliente, quero que o sistema possua um pipeline de CI, para automação de testes e validações de código. | 13 |
 
   # 🏗️ Arquitetura do Projeto
 
-  ![Arquitetura do Projeto](./docs/arquitetura.png)
+A arquitetura do Agritech evoluiu ao longo do desenvolvimento conforme as necessidades de integração, manutenção e escalabilidade da solução foram sendo validadas.
 
-  # 📈 Cronograma de Evolução
+A arquitetura atual utiliza uma abordagem de **monólito modular no backend**, mantendo os domínios organizados e com responsabilidades separadas, além de serviços específicos para o fluxo de ingestão dos dados meteorológicos.
 
-  ```mermaid
-  flowchart LR
-      S1["Sprint 1<br/>07/09/2026 a 27/09/2026<br/>Arquitetura + Banco + CRUD + Front"]
-      S2["Sprint 2<br/>Período a definir<br/>"]
-      S3["Sprint 3<br/>Período a definir<br/>"]
-      S1 --> S2 --> S3
-  ```
+Principais componentes da solução:
 
-  ---
+- **Frontend:** Next.js, responsável pelas interfaces de gerenciamento e visualização dos dados.
+- **Backend:** Node.js com Fastify, estruturado como monólito modular e organizado em camadas.
+- **Ingestão de dados:** serviços em Python responsáveis pelo recebimento e processamento das medições.
+- **Comunicação IoT:** MQTT para envio das informações provenientes das estações meteorológicas.
+- **Redis:** utilizado como armazenamento intermediário e apoio ao processamento dos dados.
+- **PostgreSQL:** banco de dados persistente utilizado para armazenamento das informações tratadas.
+- **API:** responsável pela comunicação entre frontend, backend e demais componentes da solução.
+- **Monitoramento e CI:** estrutura em evolução para acompanhamento da disponibilidade, desempenho, testes e qualidade do código.
 
-  # 🗓️ Sprints
+![Arquitetura do Projeto](./docs/arquitetura.png)
+
+---
+
+
+
+ # 🗓️ Sprints
 
   | Sprint | Período | Documentação da Sprint | Vídeo do Incremento |
   | :---: | --- | --- | --- |
   | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/Sprint1) | A adicionar |
-  | Sprint 2 | A definir | A adicionar | A adicionar |
+  | Sprint 2 | 05/10/2026 a 25/10/2026 | A adicionar | A adicionar |
   | Sprint 3 | A definir | A adicionar | A adicionar |
 
   ---
@@ -323,22 +324,40 @@
 
 # 👥 Equipe <a id="equipe"></a>
 
-| Integrante | Papel | GitHub | LinkedIn |
-| :--- | :--- | :---: | :---: |
-| **Aline Raquel Camargo de Oliveira** | Scrum Master / Developer | <a href="https://github.com/AlineRaquelC"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/aline-oliveira-60ab6265/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Ana Júlia Rubim** | Product Owner / Developer | <a href="https://github.com/anajrubim"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Lucas Marins Santos** | Developer — CI/CD | <a href="https://github.com/lucasMarinsSantos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/lucasmarinssantos/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Enrico de Chiara Germano** | Developer — Deploy / Ambientes | <a href="https://github.com/EnricoGermano"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Leonardo da Silva Lopes** | Developer — Testes de Integração | <a href="https://github.com/leodaslb"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Rafael Sette de Araújo** | Developer — Monitoramento / Observabilidade | <a href="https://github.com/Sette0o0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/rafael-sette-de-araujo-229b88334/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
-| **Vinícius Leite** | Developer — Testes Unitários | <a href="https://github.com/vinislvleite"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/vin%C3%ADcius-leite-4792b02ba/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| Integrante | Papel no DEV Team | Função no DevOps | GitHub | LinkedIn |
+| :--- | :---: | :--- | :---: | :---: |
+| **Aline Raquel Camargo de Oliveira** | Scrum Master | Rastreabilidade | <a href="https://github.com/AlineRaquelC"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/aline-oliveira-60ab6265/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Ana Júlia Rubim** | Product Owner | Documentação | <a href="https://github.com/anajrubim"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/ana-j%C3%BAlia-rubim/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Lucas Marins Santos** | Developer | CI/CD / Pipeline / GitHub Actions | <a href="https://github.com/lucasMarinsSantos"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/lucasmarinssantos/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Enrico de Chiara Germano** | Developer | Deploy / Ambientes | <a href="https://github.com/EnricoGermano"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/enrico-de-chiara-germano-022894204/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Leonardo da Silva Lopes** | Developer | Testes de Integração | <a href="https://github.com/leodaslb"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/leonardo-silva-lopes-aab435283/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Rafael Sette de Araújo** | Developer | Monitoramento / Observabilidade | <a href="https://github.com/Sette0o0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/rafael-sette-de-araujo-229b88334/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
+| **Vinícius Leite** | Developer | Testes Unitários | <a href="https://github.com/vinislvleite"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="30"></a> | <a href="https://www.linkedin.com/in/vin%C3%ADcius-leite-4792b02ba/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" width="30"></a> |
 
+> As funções de DevOps representam áreas de referência de cada integrante e não exclusividade de atuação. Desenvolvimento, revisão de código, testes, documentação e qualidade permanecem responsabilidades compartilhadas pela equipe.
   ---
 
   # 📌 Status do Projeto
 
-  **Fase atual:** Sprint 1 em andamento.
+**Fase atual:** Sprint 2 — Evolução da Solução em andamento.
 
-  A equipe está trabalhando na modelagem do banco, contratos de API, estrutura de microsserviços, rastreabilidade, testes e preparação do incremento funcional da primeira Sprint.
+A equipe está trabalhando na evolução funcional e técnica do Agritech, com foco no tratamento, monitoramento e visualização dos dados meteorológicos.
 
-  Alterações relevantes de escopo, arquitetura ou processo são registradas no Jira, Confluence e na documentação versionada.
+Nesta Sprint estão sendo desenvolvidas e aprimoradas funcionalidades relacionadas a:
+
+- visualização dos dados meteorológicos atuais;
+- consulta do histórico;
+- identificação de falhas e inconsistências;
+- gerenciamento de acesso de usuários;
+- estatísticas e previsões meteorológicas;
+- recebimento, validação e armazenamento dos dados das estações;
+- gerenciamento de propriedades agrícolas;
+- monitoramento de disponibilidade e desempenho;
+- pipeline de Integração Contínua;
+- evolução e documentação da arquitetura da solução.
+
+A arquitetura atual utiliza um backend estruturado como **monólito modular**, mantendo serviços específicos para ingestão e processamento dos dados meteorológicos.
+
+A equipe também está aprimorando a rastreabilidade entre requisitos, User Stories, Tasks, branches, commits, Pull Requests, testes e entregas.
+
+Alterações relevantes de escopo, arquitetura ou processo são registradas no Jira, Confluence e na documentação versionada.
