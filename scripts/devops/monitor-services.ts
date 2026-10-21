@@ -13,7 +13,7 @@ export type ProbeSample = {
   statusCode: number;
   durationMs: number;
   success: boolean;
-  error?: string;
+  error?: string | undefined;
 };
 
 export type ServiceMonitoringResult = {
@@ -31,7 +31,7 @@ export type ServiceMonitoringResult = {
     p95: number;
   };
   status: "HEALTHY" | "DEGRADED" | "DOWN";
-  degradationReason?: string;
+  degradationReason?: string | undefined;
   samples: ProbeSample[];
 };
 
@@ -59,14 +59,20 @@ export function calculatePercentiles(durations: number[]) {
   const max = Number((sorted[sorted.length - 1] ?? 0).toFixed(2));
 
   const getP = (p: number) => {
-    const idx = Math.min(Math.floor((p / 100) * sorted.length), sorted.length - 1);
+    const idx = Math.min(
+      Math.floor((p / 100) * sorted.length),
+      sorted.length - 1,
+    );
     return Number((sorted[idx] ?? 0).toFixed(2));
   };
 
   return { min, max, mean, p50: getP(50), p95: getP(95) };
 }
 
-export async function probeUrl(url: string, expectedStatus = [200]): Promise<ProbeSample> {
+export async function probeUrl(
+  url: string,
+  expectedStatus = [200],
+): Promise<ProbeSample> {
   const start = performance.now();
   const timestamp = new Date().toISOString();
   try {
@@ -81,7 +87,11 @@ export async function probeUrl(url: string, expectedStatus = [200]): Promise<Pro
       statusCode: response.status,
       durationMs,
       success,
-      ...(!success ? { error: `HTTP ${response.status} not in [${expectedStatus.join(", ")}]` } : {}),
+      ...(!success
+        ? {
+            error: `HTTP ${response.status} not in [${expectedStatus.join(", ")}]`,
+          }
+        : {}),
     };
   } catch (err: unknown) {
     const durationMs = Number((performance.now() - start).toFixed(2));
@@ -127,7 +137,9 @@ export async function monitorServices(
       ((successfulProbes / samples.length) * 100).toFixed(2),
     );
 
-    const successfulDurations = samples.filter((s) => s.success).map((s) => s.durationMs);
+    const successfulDurations = samples
+      .filter((s) => s.success)
+      .map((s) => s.durationMs);
     const latencyMs = calculatePercentiles(successfulDurations);
 
     let status: "HEALTHY" | "DEGRADED" | "DOWN" = "HEALTHY";
@@ -162,7 +174,9 @@ export async function monitorServices(
   }
 
   const downServices = results.filter((r) => r.status === "DOWN").length;
-  const degradedServices = results.filter((r) => r.status === "DEGRADED").length;
+  const degradedServices = results.filter(
+    (r) => r.status === "DEGRADED",
+  ).length;
   const healthyServices = results.filter((r) => r.status === "HEALTHY").length;
 
   let overallStatus: "HEALTHY" | "DEGRADED" | "UNHEALTHY" = "HEALTHY";
@@ -195,14 +209,26 @@ export function formatTerminalTable(report: MonitoringExecutionReport): string {
   };
 
   const lines: string[] = [];
-  lines.push("=====================================================================================================");
-  lines.push("                           RELATÓRIO DE MONITORAMENTO DEVOPS — VULTURE                              ");
-  lines.push("=====================================================================================================");
+  lines.push(
+    "=====================================================================================================",
+  );
+  lines.push(
+    "                           RELATÓRIO DE MONITORAMENTO DEVOPS — VULTURE                              ",
+  );
+  lines.push(
+    "=====================================================================================================",
+  );
   lines.push(`Data/Hora: ${report.executionDate}`);
   lines.push(`Status Geral: ${statusEmoji[report.overallStatus]}`);
-  lines.push(`Meta de SLA Disponibilidade: ${report.slaAvailabilityTarget}% | Limiar Latência p95: ${report.latencyThresholdDegradedMs}ms`);
-  lines.push(`Serviços Analisados: ${report.totalServicesMonitored} | Saudáveis: ${report.healthyServices} | Degradados: ${report.degradedServices} | Fora: ${report.downServices}`);
-  lines.push("-----------------------------------------------------------------------------------------------------");
+  lines.push(
+    `Meta de SLA Disponibilidade: ${report.slaAvailabilityTarget}% | Limiar Latência p95: ${report.latencyThresholdDegradedMs}ms`,
+  );
+  lines.push(
+    `Serviços Analisados: ${report.totalServicesMonitored} | Saudáveis: ${report.healthyServices} | Degradados: ${report.degradedServices} | Fora: ${report.downServices}`,
+  );
+  lines.push(
+    "-----------------------------------------------------------------------------------------------------",
+  );
   lines.push(
     [
       "SERVIÇO".padEnd(25),
@@ -214,7 +240,9 @@ export function formatTerminalTable(report: MonitoringExecutionReport): string {
       "MÁX (ms)".padEnd(10),
     ].join(" "),
   );
-  lines.push("-----------------------------------------------------------------------------------------------------");
+  lines.push(
+    "-----------------------------------------------------------------------------------------------------",
+  );
 
   for (const s of report.services) {
     lines.push(
@@ -232,11 +260,15 @@ export function formatTerminalTable(report: MonitoringExecutionReport): string {
       lines.push(`   ↳ ALERTA: ${s.degradationReason}`);
     }
   }
-  lines.push("=====================================================================================================");
+  lines.push(
+    "=====================================================================================================",
+  );
   return lines.join("\n");
 }
 
-export function formatMarkdownSummary(report: MonitoringExecutionReport): string {
+export function formatMarkdownSummary(
+  report: MonitoringExecutionReport,
+): string {
   const statusBadge = {
     HEALTHY: "🟢 **HEALTHY**",
     DEGRADED: "🟡 **DEGRADED**",
@@ -259,7 +291,9 @@ export function formatMarkdownSummary(report: MonitoringExecutionReport): string
   ];
 
   for (const s of report.services) {
-    const diag = s.degradationReason ? `⚠️ ${s.degradationReason}` : "Operação Normal";
+    const diag = s.degradationReason
+      ? `⚠️ ${s.degradationReason}`
+      : "Operação Normal";
     lines.push(
       `| **${s.serviceName}** | \`${s.targetUrl}\` | ${statusBadge[s.status]} | **${s.availabilityPercentage}%** | ${s.latencyMs.mean} ms | ${s.latencyMs.p50} ms | ${s.latencyMs.p95} ms | ${s.latencyMs.max} ms | ${diag} |`,
     );
@@ -270,15 +304,41 @@ export function formatMarkdownSummary(report: MonitoringExecutionReport): string
 
 // CLI Runner principal
 async function runCLI() {
-  const backendBase = process.env.PROD_API_URL || process.env.BACKEND_URL || "http://localhost:3000";
-  const frontendBase = process.env.PROD_FRONT_URL || process.env.FRONTEND_URL || "http://localhost:3010";
+  const backendBase =
+    process.env.PROD_API_URL ||
+    process.env.BACKEND_URL ||
+    "http://localhost:3000";
+  const frontendBase =
+    process.env.PROD_FRONT_URL ||
+    process.env.FRONTEND_URL ||
+    "http://localhost:3010";
 
   const targets: ProbeTarget[] = [
-    { name: "Backend - Health Base", url: `${backendBase}/health`, critical: true },
-    { name: "Backend - Health Detailed", url: `${backendBase}/health/detailed`, critical: true },
-    { name: "Backend - Prometheus Metrics", url: `${backendBase}/metrics`, critical: true },
-    { name: "Backend - DevOps Ping", url: `${backendBase}/api/devops/ping`, critical: false },
-    { name: "Backend - Raiz (API Info)", url: `${backendBase}/`, critical: false },
+    {
+      name: "Backend - Health Base",
+      url: `${backendBase}/health`,
+      critical: true,
+    },
+    {
+      name: "Backend - Health Detailed",
+      url: `${backendBase}/health/detailed`,
+      critical: true,
+    },
+    {
+      name: "Backend - Prometheus Metrics",
+      url: `${backendBase}/metrics`,
+      critical: true,
+    },
+    {
+      name: "Backend - DevOps Ping",
+      url: `${backendBase}/api/devops/ping`,
+      critical: false,
+    },
+    {
+      name: "Backend - Raiz (API Info)",
+      url: `${backendBase}/`,
+      critical: false,
+    },
     { name: "Frontend - Portal Web", url: `${frontendBase}/`, critical: true },
   ];
 
@@ -297,7 +357,10 @@ async function runCLI() {
   console.log(`\nRelatório JSON salvo em: ${jsonReportPath}`);
 
   if (process.env.GITHUB_STEP_SUMMARY) {
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, formatMarkdownSummary(report));
+    fs.appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      formatMarkdownSummary(report),
+    );
   }
 
   if (report.overallStatus === "UNHEALTHY") {
