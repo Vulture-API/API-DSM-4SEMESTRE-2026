@@ -1,0 +1,70 @@
+name: DevOps Service Monitoring (Disponibilidade e Latencia)
+
+on:
+  schedule:
+    # Executa a cada 30 minutos automaticamente
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: "Ambiente para monitorar (producao / local)"
+        required: true
+        default: "producao"
+        type: choice
+        options:
+          - producao
+          - local
+
+concurrency:
+  group: devops-monitoring
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  monitor-availability-and-latency:
+    name: Monitoramento de Disponibilidade e Tempo de Resposta
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+          cache-dependency-path: API-DSM-4-BACKEND/package-lock.json
+
+      - name: Instalar Dependências do Backend
+        run: |
+          cd API-DSM-4-BACKEND
+          npm ci
+
+      - name: Validar Instrumentação e Detecção de Degradação (Simulação DevOps)
+        run: |
+          cd API-DSM-4-BACKEND
+          npx tsx ../scripts/devops/simulate-load-and-degradation.ts
+
+      - name: Executar Sondas Ativas de Disponibilidade e Latência
+        env:
+          PROD_API_URL: ${{ secrets.PROD_API_URL }}
+          PROD_FRONT_URL: ${{ secrets.PROD_FRONT_URL }}
+          MONITOR_ITERATIONS: "5"
+        run: |
+          if [ -n "$PROD_API_URL" ]; then
+            echo "Executando sondas ativas contra ambiente de produção..."
+            cd API-DSM-4-BACKEND
+            npx tsx ../scripts/devops/monitor-services.ts
+          else
+            echo "::notice::Secrets PROD_API_URL não configurados. A validação interna de métricas e limites de degradação foi concluída com sucesso."
+          fi
+
+      - name: Publicar Artefato de Evidência de Monitoramento
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: devops-monitoring-evidence
+          path: docs/devops/evidencia-degradacao-monitoramento.json
+          retention-days: 30
