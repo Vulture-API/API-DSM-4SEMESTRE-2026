@@ -1,0 +1,202 @@
+{
+  "timestamp": "2026-10-20T13:58:46.078Z",
+  "baselineSummary": {
+    "status": "HEALTHY",
+    "uptimeSeconds": 0,
+    "startedAt": "2026-10-20T13:58:45.924Z",
+    "totalRequests": 200,
+    "successRequests": 200,
+    "errorRequests": 0,
+    "availabilityRatePercentage": 100,
+    "slaTargetPercentage": 99,
+    "overallLatency": {
+      "count": 200,
+      "mean": 0.08,
+      "min": 0.03,
+      "max": 3.99,
+      "p50": 0.05,
+      "p95": 0.11,
+      "p99": 0.62
+    },
+    "routes": [
+      {
+        "method": "GET",
+        "route": "/health",
+        "totalRequests": 100,
+        "errorCount": 0,
+        "latency": {
+          "count": 100,
+          "mean": 0.09,
+          "min": 0.03,
+          "max": 3.99,
+          "p50": 0.05,
+          "p95": 0.13,
+          "p99": 3.99
+        },
+        "status": "NORMAL"
+      },
+      {
+        "method": "GET",
+        "route": "/",
+        "totalRequests": 100,
+        "errorCount": 0,
+        "latency": {
+          "count": 100,
+          "mean": 0.06,
+          "min": 0.03,
+          "max": 0.62,
+          "p50": 0.04,
+          "p95": 0.11,
+          "p99": 0.62
+        },
+        "status": "NORMAL"
+      }
+    ],
+    "database": {
+      "status": "UP",
+      "latencyMs": 0.04
+    },
+    "degradationAlerts": []
+  },
+  "degradedSummary": {
+    "status": "UNHEALTHY",
+    "uptimeSeconds": 0,
+    "startedAt": "2026-10-20T13:58:45.924Z",
+    "totalRequests": 225,
+    "successRequests": 221,
+    "errorRequests": 4,
+    "availabilityRatePercentage": 98.22,
+    "slaTargetPercentage": 99,
+    "overallLatency": {
+      "count": 225,
+      "mean": 72.46,
+      "min": 0.03,
+      "max": 841.94,
+      "p50": 0.05,
+      "p95": 712.58,
+      "p99": 805.01
+    },
+    "routes": [
+      {
+        "method": "GET",
+        "route": "/health",
+        "totalRequests": 100,
+        "errorCount": 0,
+        "latency": {
+          "count": 100,
+          "mean": 0.09,
+          "min": 0.03,
+          "max": 3.99,
+          "p50": 0.05,
+          "p95": 0.13,
+          "p99": 3.99
+        },
+        "status": "NORMAL"
+      },
+      {
+        "method": "GET",
+        "route": "/",
+        "totalRequests": 100,
+        "errorCount": 0,
+        "latency": {
+          "count": 100,
+          "mean": 0.06,
+          "min": 0.03,
+          "max": 0.62,
+          "p50": 0.04,
+          "p95": 0.11,
+          "p99": 0.62
+        },
+        "status": "NORMAL"
+      },
+      {
+        "method": "GET",
+        "route": "/health/detailed",
+        "totalRequests": 1,
+        "errorCount": 0,
+        "latency": {
+          "count": 1,
+          "mean": 0.93,
+          "min": 0.93,
+          "max": 0.93,
+          "p50": 0.93,
+          "p95": 0.93,
+          "p99": 0.93
+        },
+        "status": "NORMAL"
+      },
+      {
+        "method": "GET",
+        "route": "/api/stations",
+        "totalRequests": 20,
+        "errorCount": 0,
+        "latency": {
+          "count": 20,
+          "mean": 734.36,
+          "min": 657.56,
+          "max": 841.94,
+          "p50": 731.95,
+          "p95": 841.94,
+          "p99": 841.94
+        },
+        "status": "DEGRADED"
+      },
+      {
+        "method": "GET",
+        "route": "/api/readings",
+        "totalRequests": 4,
+        "errorCount": 4,
+        "latency": {
+          "count": 4,
+          "mean": 400,
+          "min": 400,
+          "max": 400,
+          "p50": 400,
+          "p95": 400,
+          "p99": 400
+        },
+        "status": "DEGRADED"
+      }
+    ],
+    "database": {
+      "status": "UP",
+      "latencyMs": 0
+    },
+    "degradationAlerts": [
+      {
+        "severity": "CRITICAL",
+        "type": "HIGH_LATENCY",
+        "message": "Rota GET /api/stations apresentando p95 de 841.94ms (limiar: 300ms)",
+        "target": "GET /api/stations",
+        "currentValue": 841.94,
+        "threshold": 300,
+        "timestamp": "2026-10-20T13:58:46.076Z"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "HIGH_LATENCY",
+        "message": "Rota GET /api/readings apresentando p95 de 400ms (limiar: 300ms)",
+        "target": "GET /api/readings",
+        "currentValue": 400,
+        "threshold": 300,
+        "timestamp": "2026-10-20T13:58:46.076Z"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "HIGH_LATENCY",
+        "message": "Latência global p95 elevada: 712.58ms (limiar: 300ms)",
+        "currentValue": 712.58,
+        "threshold": 300,
+        "timestamp": "2026-10-20T13:58:46.076Z"
+      }
+    ]
+  },
+  "validationResult": "PASSED",
+  "acceptanceCriteriaVerified": {
+    "availabilityMonitored": true,
+    "responseTimeCollected": true,
+    "metricsAccessible": true,
+    "degradationsIdentified": true,
+    "evidenceRecorded": true
+  }
+}
