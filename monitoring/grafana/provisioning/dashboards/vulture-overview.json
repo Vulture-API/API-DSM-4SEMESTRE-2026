@@ -1,5 +1,7 @@
 {
-  "annotations": { "list": [] },
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -10,87 +12,575 @@
     {
       "title": "Status Operacional do Serviço",
       "type": "stat",
-      "gridPos": { "h": 6, "w": 6, "x": 0, "y": 0 },
-      "targets": [{ "expr": "vulture_service_status", "legendFormat": "Status" }],
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "vulture_service_status",
+          "legendFormat": "Status"
+        }
+      ],
       "fieldConfig": {
         "defaults": {
           "mappings": [
-            { "type": "value", "options": { "1": { "text": "HEALTHY", "color": "green" }, "0.5": { "text": "DEGRADED", "color": "yellow" }, "0": { "text": "UNHEALTHY", "color": "red" } } }
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "text": "UNHEALTHY",
+                  "color": "red"
+                },
+                "1": {
+                  "text": "HEALTHY",
+                  "color": "green"
+                },
+                "0.5": {
+                  "text": "DEGRADED",
+                  "color": "yellow"
+                }
+              }
+            }
           ],
-          "thresholds": { "mode": "absolute", "steps": [{ "color": "red", "value": null }, { "color": "yellow", "value": 0.5 }, { "color": "green", "value": 1 }] }
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.5
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
         }
       }
     },
     {
       "title": "Disponibilidade Acumulada (SLA)",
       "type": "gauge",
-      "gridPos": { "h": 6, "w": 6, "x": 6, "y": 0 },
-      "targets": [{ "expr": "vulture_availability_ratio_percentage", "legendFormat": "Disponibilidade (%)" }],
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "vulture_availability_ratio_percentage",
+          "legendFormat": "Disponibilidade (%)"
+        }
+      ],
       "fieldConfig": {
         "defaults": {
           "unit": "percent",
           "min": 0,
           "max": 100,
-          "thresholds": { "mode": "absolute", "steps": [{ "color": "red", "value": null }, { "color": "yellow", "value": 98 }, { "color": "green", "value": 99 }] }
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 98
+              },
+              {
+                "color": "green",
+                "value": 99
+              }
+            ]
+          }
         }
       }
     },
     {
       "title": "Tempo de Resposta (p95 / SLA)",
       "type": "stat",
-      "gridPos": { "h": 6, "w": 6, "x": 12, "y": 0 },
-      "targets": [{ "expr": "vulture_http_response_time_ms{quantile=\"0.95\"}", "legendFormat": "p95" }],
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "vulture_http_response_time_ms{quantile=\"0.95\"}",
+          "legendFormat": "p95"
+        }
+      ],
       "fieldConfig": {
         "defaults": {
           "unit": "ms",
-          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "yellow", "value": 200 }, { "color": "red", "value": 500 }] }
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 200
+              },
+              {
+                "color": "red",
+                "value": 500
+              }
+            ]
+          }
         }
       }
     },
     {
       "title": "Alertas de Degradação Ativos",
       "type": "stat",
-      "gridPos": { "h": 6, "w": 6, "x": 18, "y": 0 },
-      "targets": [{ "expr": "vulture_degradations_active", "legendFormat": "Anomalias" }],
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "vulture_degradations_active",
+          "legendFormat": "Anomalias"
+        }
+      ],
       "fieldConfig": {
         "defaults": {
-          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": 0 }, { "color": "red", "value": 1 }] }
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
         }
       }
     },
     {
       "title": "Evolução do Tempo de Resposta (Latência p50, p95 e Média)",
       "type": "timeseries",
-      "gridPos": { "h": 9, "w": 12, "x": 0, "y": 6 },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
       "targets": [
-        { "expr": "vulture_http_response_time_ms{quantile=\"0.50\"}", "legendFormat": "p50 (Mediana)" },
-        { "expr": "vulture_http_response_time_ms{quantile=\"0.95\"}", "legendFormat": "p95" },
-        { "expr": "vulture_http_response_time_ms{metric=\"mean\"}", "legendFormat": "Média" }
+        {
+          "expr": "vulture_http_response_time_ms{quantile=\"0.50\"}",
+          "legendFormat": "p50 (Mediana)"
+        },
+        {
+          "expr": "vulture_http_response_time_ms{quantile=\"0.95\"}",
+          "legendFormat": "p95"
+        },
+        {
+          "expr": "vulture_http_response_time_ms{metric=\"mean\"}",
+          "legendFormat": "Média"
+        }
       ],
       "fieldConfig": {
-        "defaults": { "unit": "ms", "custom": { "lineWidth": 2 } }
+        "defaults": {
+          "unit": "ms",
+          "custom": {
+            "lineWidth": 2
+          }
+        }
       }
     },
     {
       "title": "Taxa de Requisições HTTP por Código de Status",
       "type": "timeseries",
-      "gridPos": { "h": 9, "w": 12, "x": 12, "y": 6 },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
       "targets": [
-        { "expr": "rate(vulture_http_requests_total{status=\"2xx\"}[1m])", "legendFormat": "2xx Sucesso" },
-        { "expr": "rate(vulture_http_requests_total{status=\"4xx\"}[1m])", "legendFormat": "4xx Cliente" },
-        { "expr": "rate(vulture_http_requests_total{status=\"5xx\"}[1m])", "legendFormat": "5xx Servidor" }
+        {
+          "expr": "rate(vulture_http_requests_total{status=\"2xx\"}[1m])",
+          "legendFormat": "2xx Sucesso"
+        },
+        {
+          "expr": "rate(vulture_http_requests_total{status=\"4xx\"}[1m])",
+          "legendFormat": "4xx Cliente"
+        },
+        {
+          "expr": "rate(vulture_http_requests_total{status=\"5xx\"}[1m])",
+          "legendFormat": "5xx Servidor"
+        }
       ],
       "fieldConfig": {
-        "defaults": { "unit": "reqps" }
+        "defaults": {
+          "unit": "reqps"
+        }
+      }
+    },
+    {
+      "title": "Indisponibilidades Ativas",
+      "type": "stat",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 15
+      },
+      "targets": [
+        {
+          "expr": "vulture_outages_active",
+          "legendFormat": "Incidentes Abertos"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Downtime Total Acumulado",
+      "type": "stat",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 15
+      },
+      "targets": [
+        {
+          "expr": "vulture_outage_downtime_seconds_total",
+          "legendFormat": "Downtime"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 300
+              },
+              {
+                "color": "red",
+                "value": 864
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Disponibilidade SLA Real (Outages)",
+      "type": "gauge",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 15
+      },
+      "targets": [
+        {
+          "expr": "vulture_sla_availability_ratio_percentage",
+          "legendFormat": "SLA Real (%)"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 95,
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 98.5
+              },
+              {
+                "color": "green",
+                "value": 99
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Total de Indisponibilidades Registradas",
+      "type": "stat",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 15
+      },
+      "targets": [
+        {
+          "expr": "vulture_outages_total",
+          "legendFormat": "Histórico Total"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Uso de Memória Heap da Aplicação",
+      "type": "gauge",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 21
+      },
+      "targets": [
+        {
+          "expr": "vulture_process_memory_heap_usage_percent",
+          "legendFormat": "Heap (%)"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Uso de CPU do Processo",
+      "type": "gauge",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 21
+      },
+      "targets": [
+        {
+          "expr": "vulture_process_cpu_usage_percent",
+          "legendFormat": "CPU (%)"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Lag do Event Loop Node.js",
+      "type": "stat",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 21
+      },
+      "targets": [
+        {
+          "expr": "vulture_event_loop_lag_ms",
+          "legendFormat": "Atraso Médio"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 150
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Gargalos de Recursos Detectados",
+      "type": "stat",
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 21
+      },
+      "targets": [
+        {
+          "expr": "vulture_bottlenecks_detected_total",
+          "legendFormat": "Gargalos Ativos"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "Conexões do Pool de Banco de Dados (PostgreSQL)",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "targets": [
+        {
+          "expr": "vulture_database_pool_active_connections",
+          "legendFormat": "Conexões Ativas"
+        },
+        {
+          "expr": "vulture_database_pool_idle_connections",
+          "legendFormat": "Conexões Ociosas"
+        },
+        {
+          "expr": "vulture_database_pool_waiting_clients",
+          "legendFormat": "Clientes em Fila de Espera"
+        },
+        {
+          "expr": "vulture_database_pool_total_connections",
+          "legendFormat": "Total Alocado no Pool"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "lineWidth": 2
+          }
+        }
       }
     }
   ],
   "schemaVersion": 38,
   "style": "dark",
-  "tags": ["vulture", "devops", "sla", "latency"],
-  "time": { "from": "now-1h", "to": "now" },
+  "tags": [
+    "vulture",
+    "devops",
+    "sla",
+    "latency",
+    "outages",
+    "resources"
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Vulture — Monitoramento de Disponibilidade e Latência",
+  "title": "Vulture — Observabilidade, Confiabilidade e Recursos (SLA / DevOps)",
   "version": 1
 }
