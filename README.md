@@ -6,7 +6,7 @@
   Solução IoT para monitoramento meteorológico desenvolvida pela Equipe Vulture.
   </p>
 
-  > **Status do Projeto:** Sprint 1 em andamento  
+  > **Status do Projeto:** Sprint 2 concluída — preparação da Sprint 3 
   > **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog  
   > **Confluence:** https://vultureapi.atlassian.net/wiki/x/AYA7
 
@@ -78,7 +78,7 @@ Principais componentes da solução:
   | Sprint | Período | Documentação da Sprint | Vídeo do Incremento |
   | :---: | --- | --- | --- |
   | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/Sprint1) | A adicionar |
-  | Sprint 2 | 05/10/2026 a 25/10/2026 | A adicionar | A adicionar |
+  | Sprint 2 | 05/10/2026 a 25/10/2026 | [Documentação](docs/Sprint2) | A adicionar |
   | Sprint 3 | A definir | A adicionar | A adicionar |
 
   ---
@@ -339,9 +339,9 @@ Principais componentes da solução:
 
   # 📌 Status do Projeto
 
-**Fase atual:** Sprint 2 — Evolução da Solução em andamento.
+**Fase atual:** Sprint 2 concluída — preparação da Sprint 3.
 
-A equipe está trabalhando na evolução funcional e técnica do Agritech, com foco no tratamento, monitoramento e visualização dos dados meteorológicos.
+A equipe concluiu a Sprint 2 e está preparando a Sprint 3, consolidando a documentação, revisando o processo de trabalho e organizando os próximos incrementos da solução.
 
 Nesta Sprint estão sendo desenvolvidas e aprimoradas funcionalidades relacionadas a:
 
