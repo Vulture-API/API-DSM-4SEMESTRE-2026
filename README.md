@@ -6,8 +6,10 @@
   Solução IoT para monitoramento meteorológico desenvolvida pela Equipe Vulture.
   </p>
 
-  > **Status do Projeto:** Sprint 2 concluída — preparação da Sprint 3 
-  > **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog  
+  > **Status do Projeto:** Sprint 3 iniciada
+> 
+  > **Jira:** https://vultureapi.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
+> 
   > **Confluence:** https://vultureapi.atlassian.net/wiki/x/AYA7
 
   ---
@@ -79,7 +81,7 @@ Principais componentes da solução:
   | :---: | --- | --- | --- |
   | Sprint 1 | 07/09/2026 a 27/09/2026 | [Documentação](docs/Sprint1) | A adicionar |
   | Sprint 2 | 05/10/2026 a 25/10/2026 | [Documentação](docs/Sprint2) | A adicionar |
-  | Sprint 3 | A definir | A adicionar | A adicionar |
+  | Sprint 3 | 02/11/2026 a 23/11/2026 | [Documentação](docs/Sprint3) | A adicionar |
 
   ---
 
@@ -339,7 +341,7 @@ Principais componentes da solução:
 
   # 📌 Status do Projeto
 
-**Fase atual:** Sprint 2 concluída — preparação da Sprint 3.
+**Fase atual:** Sprint 2 concluída — Sprint 3 iniciada.
 
 A equipe concluiu a Sprint 2 e está preparando a Sprint 3, consolidando a documentação, revisando o processo de trabalho e organizando os próximos incrementos da solução.
 
