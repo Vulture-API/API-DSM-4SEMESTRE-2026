@@ -5,6 +5,8 @@
 **Curso / Semestre:** 4º DSM — Semestre 2026-2  
 **Frente:** Engenharia de DevOps e Deploy  
 
+> **Atualização (20/11/2026):** o deploy de produção passou a ser feito só na AWS (EC2 + Docker Compose), pelo repositório [API-DSM-4-DEPLOY](https://github.com/Vulture-API/API-DSM-4-DEPLOY): o E2E verde na `main` do API-DSM-4-INFRA dispara o `deploy-aws.yml`. Os workflows `deploy.yml` (Vercel/Render) deste repositório, do FRONTEND e dos microsserviços antigos foram removidos. As seções abaixo sobre Vercel/Render e seus secrets ficam como histórico. Detalhes: `docs/mudancas-aws.md` no API-DSM-4-DEPLOY.
+
 ---
 
 ## 1. OBJETIVO E ESCOPO
