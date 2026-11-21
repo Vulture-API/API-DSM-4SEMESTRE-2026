@@ -316,7 +316,9 @@ Principais componentes da solução:
 
   ## 📘 Manual do Usuário
 
-  Será produzido conforme as funcionalidades forem concluídas.
+  O guia completo de operação do portal **AgroClima 360** (acesso, perfis e permissões, monitoramento, relatórios, alertas, administração e solução de problemas) está disponível em:
+
+  - 📘 [Manual do Usuário](docs/manual-do-usuario.md)
 
   ## 📖 Manual de Instalação
 
