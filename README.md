@@ -322,7 +322,9 @@ Principais componentes da solução:
 
   ## 📖 Manual de Instalação
 
-  Será atualizado conforme os serviços e dependências finais forem consolidados.
+  O guia completo de instalação, configuração de ambiente, banco de dados, telemetria, validação e implantação na AWS está disponível em:
+
+  - 📖 [Manual de Instalação](docs/manual-de-instalacao.md)
 
   ---
 
